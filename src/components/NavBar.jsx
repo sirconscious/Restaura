@@ -28,7 +28,7 @@ export default function NavBar() {
         <img src={logo} alt="" width={80} height={22}/> 
         <div className="hidden space-x-6 lg:flex">
           {LINKS.map((link, index)=>{
-            return <a key={index} href={"#"+link.targetId} className={`text-sm ${ index ==0 ?"border-l-0":"border-l-2 border-neutral-300/20" } hover:opacity-50 `}
+            return <a key={index} href={`#${link.targetId}`} className={`text-sm ${ index ==0 ?"border-l-0":"border-l-2 border-neutral-300/20" } hover:opacity-50 `}
             onClick={(e)=> handleScroll(e,link.targetId)}  
           >{link.text}</a>
           })}
@@ -45,7 +45,7 @@ export default function NavBar() {
 
             <div className="w-full backdrop-blur-lg lg:hidden">
                {LINKS.map((link , index)=>{
-                return <a href={"#"+link.targetId} className='block p-4 uppercase tracking-tighter '
+                return <a key={index} href={`#${link.targetId}`} className='block p-4 uppercase tracking-tighter '
                 onClick={(e)=> handleScroll(e,link.targetId)}>{link.text}</a>
                })}
             </div>
