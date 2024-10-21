@@ -1,8 +1,1 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+a visually stunning and highly responsive landing page for a restaurant using React and Framer Motion. The design will feature smooth, interactive animations to enhance the user experience, engaging visitors with dynamic transitions and elements. Optimized for performance and mobile responsiveness, the page will showcase the restaurant’s brand, menu, and unique atmosphere, offering seamless navigation across all devices. Framer Motion will bring the interface to life with fluid animations that elevate the overall aesthetic, creating an immersive and engaging user journey.
