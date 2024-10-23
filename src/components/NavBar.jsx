@@ -4,6 +4,8 @@ import logo from '../assets/logo.png'
 import {LINKS} from '../constants/index'
 import { FaTimes } from 'react-icons/fa'
 import { FaBars } from 'react-icons/fa6'
+import logo2 from '../assets/ccc-removebg-preview.png'
+
 export default function NavBar() {
   const [isMobilemenuOpen , setIsMobileMenuOpen] = useState(false)
   const togleMenu = ()=>{
@@ -24,8 +26,8 @@ export default function NavBar() {
     <nav className='fixed top-4 z-50 
     flex w-full flex-col items-center justify-center'>
       <div className="flex w-full items-center justify-between overflow-y-hidden
-      backdrop-blur-lg lg:m-2 lg:w-[50rem] lg:rounded-full lg:shadow-lg py-5 px-4">
-        <img src={logo} alt="" width={80} height={22}/> 
+      backdrop-blur-md bg-black bg-opacity-30 lg:m-2 lg:w-[50rem] lg:rounded-full lg:shadow-lg py-5 px-4">
+        <img src={logo2} alt="" width={80} height={50}/> 
         <div className="hidden space-x-6 lg:flex">
           {LINKS.map((link, index)=>{
             return <a key={index} href={`#${link.targetId}`} className={`text-sm ${ index ==0 ?"border-l-0":"border-l-2 border-neutral-300/20" } hover:opacity-50 `}

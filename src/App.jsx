@@ -6,6 +6,8 @@ import About from './components/About'
 import Mission from './components/Mission'
 import Expertise from './components/Expertise'
 import Review from './components/Review'
+import ContactSection from './components/ContactSection'
+import Footer from './components/Footer'
 export default function App() {
   return (
     <main className='overflow-y-hidden text-neutral-200'>
@@ -16,6 +18,8 @@ export default function App() {
       <Mission/>
       <Expertise/>
       <Review/>
+      <ContactSection/>
+      <Footer/>
     </main>
   )
 }

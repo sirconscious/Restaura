@@ -1,12 +1,39 @@
 import React from 'react' 
 import {CUSINES} from '../constants/index'
+import {motion, stagger} from 'framer-motion'
 export default function Expertise() {
+  const containerVariant = {
+    hidden : {opacity : 0} ,
+    show : {opacity : 1 ,
+        transition : {
+          staggerChildren : 1
+        }
+    }
+  }
+  const itemVariants = {
+    hidden : {opacity : 0 , y : 20} ,
+    show :  {
+      opacity: 1 ,
+      y : 0 ,
+      transition : {
+        duration : 0.8
+      }
+    }
+  }
   return (
     <section id='expertise'>
       <h2 className='my-8 text-center text-3xl tracking-tighter lg:text-4xl'>Our Expertise</h2>
-      <div className="container mx-auto px-4'">
+      <motion.div
+      initial ="hidden" 
+      whileInView="show"
+      variants={containerVariant}
+      
+      className="container mx-auto px-4'">
         {CUSINES.map((cuisine,index)=>{
-            return(<div className='flex items-center border-b-4 border-dotted
+            return(<motion.div 
+              variants={itemVariants}
+             
+              className='flex items-center border-b-4 border-dotted
                 border-neutral-700/40 py-2
             ' key={index}>
                     <div className="text-lg sm:text-3xl md:text-4xl">
@@ -20,9 +47,9 @@ export default function Expertise() {
                             {cuisine.title}</h3>
                             <p className='mt-4 text-lg tracking-tight'>{cuisine.description}</p>
                     </div>
-            </div>)
+            </motion.div>)
         })}
-      </div>
+      </motion.div>
     </section>
   )
 }
