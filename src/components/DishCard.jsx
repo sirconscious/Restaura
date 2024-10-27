@@ -3,7 +3,7 @@ import React from 'react'
 export default function DishCard({project}) {
   return (
     <div>
-      <img src={project.image} alt={project.title}
+      <img src={project.image}  alt={project.title}
       className='rounded-3xl p-2'
       />
       <div className="p-4">

@@ -3,32 +3,54 @@ import video from "../assets/hero.mp4"
 import logo from "../assets/logo.png"
 import hero from "../assets/hero.jpeg"
 import vid1 from '../assets/vid1.mp4'
-import logo2 from '../assets/ccc-removebg-preview.png'
+import logo2 from '../assets/finalLogo-removebg-preview.png'
+import logoV from '../assets/white_logo-removebg-preview.png'
 import {motion} from 'framer-motion'
 export default function Hero() {
   return (
     <div>
       <section className='relative flex h-screen items-center justify-center '>
         <div className="absolute inset-0 -z-20 h-full w-full overflow-hidden ">
-            <video src={vid1} autoPlay muted loop playsInline  poster={hero} className='h-full w-full object-cover'></video>
+            <video src={vid1} autoPlay muted loop playsInline  className='h-full w-full object-cover'></video>
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent from-70% to-black"></div>
-        <div className="realtive z-20 flex h-screen flex-col justify-end pb-20">
+        <div className="realtive z-20 flex h-screen  flex-row justify-center items-end pb-20">
+
+        <motion.img
+        initial = {{
+          opacity: 0,
+          x : -240 ,
+          rotateY : 180
+        }}
+        animate = {{
+          opacity: 1 ,
+          x : 0,
+          rotateY : 0
+        }}
+        transition={{duration : 0.4
+          , delay : 0.5
+
+}}
+         src={logoV} className="w-1/3 sm:w-1/4 md:w-1/5 lg:w-1/6" alt="" />
+         
+         <div className="">
+        
             <motion.img 
             initial = {{
               opacity: 0,
-              y : 50 
+              y : 40
             }}
             animate = {{
               opacity: 1 ,
               y : 0
             }}
-            transition={{duration : 0.6
-                      , delay : 1
+            transition={{duration : 0.4
+                      , delay : 0.5
 
             }}
-            src={logo2} alt="" className='w-full p-4' />
+            src={logo2} alt="" className=' p-4' />
             <p className='p-4 text-lg tracking-tighter text-white'>Marrakech</p>
+         </div>
         </div>
       </section>
     </div>

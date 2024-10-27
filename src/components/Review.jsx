@@ -66,18 +66,8 @@ export default function Review() {
         justify-center gap-2 md:flex-row ">
             {[customer1 , customer2 , customer3 , customer4].map((customer,index)=>{
                 return(
-                    <motion.img
-                    initial={{
-                        opacity: 0 ,
-
-                    }}
-                    whileInView={{
-                        opacity: 1 ,
-                    }}
-                    transition={{
-                        delay : 0.5,
-                        duration : 0.8
-                    }}                   key={index} src={customer} className='
+                    <img
+                                    key={index} src={customer} className='
                     h-[350px] w-[250px] rounded-br-3xl rounded-tl-3xl object-cover' />
                 )
             })}

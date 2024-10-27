@@ -1,3 +1,6 @@
+import dish02 from "../assets/dish02.jpeg";
+import dish01 from "../assets/dish01.jpg";
+import dish03 from "../assets/dish03.jpeg";
 import dish1 from "../assets/dish1.jpeg";
 import dish2 from "../assets/dish2.jpeg";
 import dish3 from "../assets/dish3.jpeg";
@@ -26,17 +29,17 @@ export const LINKS = [
 
 export const DISHES = [
   {
-    image: dish1,
-    title: "Spaghetti Carbonara",
-    description: "Creamy pasta with bacon and cheese",
+    image: dish01,
+    title: "Tagine With vegtebals",
+    description: "Moroccan stew of mixed vegetables slow-cooked with warm spices",
   },
   {
-    image: dish2,
-    title: "Chicken Tikka Masala",
-    description: "Indian curry with tender chicken in spicy sauce",
+    image: dish02,
+    title: "Suite Moroccan Saffa",
+    description: "Elegant Moroccan suite with cultural charm",
   },
   {
-    image: dish3,
+    image: dish03,
     title: "Caprese Salad",
     description: "Fresh tomatoes, mozzarella, and basil with balsamic glaze",
   },
@@ -139,3 +142,4 @@ export const SOCIAL_MEDIA_LINKS = [
     icon: <FaXTwitter fontSize={30} className="hover:opacity-80" />,
   },
 ];
+
