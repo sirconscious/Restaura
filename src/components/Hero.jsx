@@ -50,7 +50,7 @@ export default function Hero() {
             }}
             src={logo2} alt="" className=' p-4' />
 
-            <p className='p-4 text-lg tracking-tighter text-white'>Moroccoooooooo</p>
+            <p className='p-4 text-lg tracking-tighter text-white'>Marrakech</p>
 
          </div>
         </div>
