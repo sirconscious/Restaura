@@ -14,21 +14,21 @@ export default function Hero() {
             <video src={vid1} autoPlay muted loop playsInline  className='h-full w-full object-cover'></video>
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent from-70% to-black"></div>
-        <div className="realtive z-20 flex h-screen  flex-row justify-center items-end pb-20">
+        <div className="realtive z-20 flex h-screen  flex-row justify-center items-end pb-5">
 
         <motion.img
         initial = {{
           opacity: 0,
-          x : -240 ,
-          rotateY : 180
+          x : -400 ,
+          rotateY : "180deg"
         }}
         animate = {{
           opacity: 1 ,
           x : 0,
-          rotateY : 0
+          rotateY : "0deg"
         }}
-        transition={{duration : 0.4
-          , delay : 0.5
+        transition={{duration : 1
+          , delay : 0.6
 
 }}
          src={logoV} className="w-1/3 sm:w-1/4 md:w-1/5 lg:w-1/6" alt="" />
@@ -45,8 +45,8 @@ export default function Hero() {
               y : 0
             }}
             transition={{duration : 0.4
-                      , delay : 0.5
-
+                      , delay : 0.9,
+                      ease : "linear"
             }}
             src={logo2} alt="" className=' p-4' />
             <p className='p-4 text-lg tracking-tighter text-white'>Marrakech</p>
