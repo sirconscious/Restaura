@@ -49,7 +49,9 @@ export default function Hero() {
                       ease : "linear"
             }}
             src={logo2} alt="" className=' p-4' />
-            <p className='p-4 text-lg tracking-tighter text-white'>MOROCCO</p>
+
+            <p className='p-4 text-lg tracking-tighter text-white'>Moroccoooooooo</p>
+
          </div>
         </div>
       </section>
