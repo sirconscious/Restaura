@@ -3,6 +3,7 @@ import React from 'react';
 export default function DishCard({ project }) {
     return (
         <div className=" rounded-lg shadow-lg overflow-hidden">
+          
             <img 
                 src={project.image} 
                 alt={project.title}
