@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import  {REVIEW} from '../constants/index'
 import xaviour from '../assets/xaviour.jpeg'
 import customer1 from '../assets/customer1.jpeg'
