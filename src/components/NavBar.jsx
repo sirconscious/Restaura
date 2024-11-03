@@ -30,7 +30,7 @@ export default function NavBar() {
         <img src={logo2} alt="" width={80} height={50}/> 
         <div className="hidden space-x-6 lg:flex">
           {LINKS.map((link, index)=>{
-            return <a key={index} href={`#${link.targetId}`} className={`text-sm ${ index ==0 ?"border-l-0":"border-l-2 border-neutral-300/20" } hover:opacity-50 `}
+            return <a key={index} href={`#${link.targetId}`} className={`text-sm ${ index ==0 ?"":" " } hover:opacity-50 `}
             onClick={(e)=> handleScroll(e,link.targetId)}  
           >{link.text}</a>
           })}

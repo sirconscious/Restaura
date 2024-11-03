@@ -1,16 +1,13 @@
 import dish02 from "../assets/dish02.jpeg";
 import dish01 from "../assets/dish01.jpg";
 import dish03 from "../assets/dish03.jpeg";
-import dish1 from "../assets/dish1.jpeg";
-import dish2 from "../assets/dish2.jpeg";
-import dish3 from "../assets/dish3.jpeg";
-import dish4 from "../assets/dish4.jpeg";
-import dish5 from "../assets/dish5.jpeg";
-import dish6 from "../assets/dish6.jpeg";
-import dish7 from "../assets/dish7.jpeg";
-import dish8 from "../assets/dish8.jpeg";
-import dish9 from "../assets/dish9.jpeg";
-import dish10 from "../assets/dish10.jpeg";
+import dish04 from "../assets/dish04.jpeg";
+import dish05 from "../assets/dish05.jpeg";
+import dish06 from "../assets/dish06.jpeg";
+import dish07 from "../assets/dish07.jpeg";
+import dish08 from "../assets/dish08.jpeg";
+import dish09 from "../assets/dish09.jpeg";
+import dish010 from "../assets/dish010.jpeg";
 
 import italian from "../assets/italian.jpeg";
 import japanese from "../assets/japanese.jpeg";
@@ -40,51 +37,51 @@ export const DISHES = [
   },
   {
     image: dish03,
-    title: "Caprese Salad",
-    description: "Fresh tomatoes, mozzarella, and basil with balsamic glaze",
+    title: "Moroccan Harira",
+    description: "Hearty Moroccan soup with tomatoes, lentils, chickpeas, and fragrant spices.",
   },
   {
-    image: dish4,
-    title: "Sushi Roll",
-    description: "Assorted seafood and vegetables wrapped in seaweed and rice",
+    image: dish04,
+    title: "Tacos",
+    description: "Soft tortillas filled with seasoned meat, fresh salsa, and zesty toppings.",
   },
   {
-    image: dish5,
-    title: "Chocolate Lava Cake",
-    description: "Decadent chocolate cake with a gooey center",
+    image: dish05,
+    title: "Pizza",
+    description: "Classic Italian-style pizza with a crispy crust, tangy tomato sauce, and melted cheese.",
   },
   {
-    image: dish6,
-    title: "Greek Salad",
-    description: "Crisp lettuce, olives, feta cheese, and tangy dressing",
+    image: dish06,
+    title: "Sushi",
+    description: "Freshly rolled sushi with vinegared rice, fish, and vibrant vegetables.",
   },
   {
-    image: dish7,
-    title: "Pad Thai",
-    description: "Stir-fried rice noodles with shrimp, tofu, and peanuts",
+    image: dish07,
+    title: "Chicken Bastila ",
+    description: "Moroccan flaky pastry filled with spiced shredded chicken, almonds, and a hint of cinnamon, dusted with powdered sugar.",
   },
   {
-    image: dish8,
-    title: "Peking Duck",
-    description: "Crispy duck with pancakes, cucumber, and hoisin sauce",
+    image: dish08,
+    title: "Burger",
+    description: "Juicy beef patty in a soft bun with fresh toppings and a special sauce.",
   },
   {
-    image: dish9,
-    title: "Beef Wellington",
-    description: "Tender beef filet wrapped in pastry with mushrooms and herbs",
+    image: dish09,
+    title: "Pan-Fried Ribeye Steak",
+    description: "Tender ribeye steak pan-seared to a perfect crust with rich, savory flavors.",
   },
   {
-    image: dish10,
-    title: "Tiramisu",
+    image: dish010,
+    title: "Moroccan chicken",
     description:
-      "Italian dessert with layers of coffee-soaked biscuits and mascarpone",
+      "Golden-roasted Moroccan chicken marinated with spices and slow-cooked to perfection.",
   },
 ];
 
 export const ABOUT = {
   header: "We love cooking!",
   content:
-    "At Restaura, we believe that great food goes beyond taste; it tells a story of dedication and creativity. From our chef's signature creations to our attentive service, every detail is curated to ensure your visit is nothing short of exceptional. Whether you're savoring our renowned Tikka Kebab or exploring our diverse menu inspired by global flavors, each dish is a celebration of flavor and innovation. Join us for a culinary journey where every bite leaves a lasting impression. Experience Restaura—where every meal is a masterpiece.",
+    "At RiadSaveur, we believe that great food goes beyond taste; it tells a story of dedication and creativity. From our chef's signature creations to our attentive service, every detail is curated to ensure your visit is nothing short of exceptional. Whether you're savoring our renowned Tikka Kebab or exploring our diverse menu inspired by global flavors, each dish is a celebration of flavor and innovation. Join us for a culinary journey where every bite leaves a lasting impression. Experience RiadSaveur—where every meal is a masterpiece.",
 };
 
 export const MISSION =
@@ -118,7 +115,7 @@ export const REVIEW = {
   name: "Xaviour Fernando",
   profession: "Food Critic",
   content:
-    "“As a seasoned food critic, my expectations are always high when stepping into a new dining establishment. Restaura, with its unassuming exterior and elegantly designed interior, promised a unique culinary experience from the moment I walked in. And I must say, it delivered beyond my expectations.”",
+    "“As a seasoned food critic, my expectations are always high when stepping into a new dining establishment. RiadSaveur, with its unassuming exterior and elegantly designed interior, promised a unique culinary experience from the moment I walked in. And I must say, it delivered beyond my expectations.”",
 };
 
 export const CONTACT = [
