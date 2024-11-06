@@ -14,7 +14,7 @@ import japanese from "../assets/japanese.jpeg";
 import indian from "../assets/indian.jpeg";
 
 import { FaXTwitter, FaFacebook, FaInstagram } from "react-icons/fa6";
-
+import { GrLocationPin } from "react-icons/gr";
 export const LINKS = [
   { text: "Dishes", targetId: "dishes" },
   { text: "About", targetId: "about" },
@@ -29,52 +29,72 @@ export const DISHES = [
     image: dish01,
     title: "Tagine With vegtebals",
     description: "Moroccan stew of mixed vegetables slow-cooked with warm spices",
+    rating : 4,
+    price : 80 
   },
   {
     image: dish02,
     title: "Suite Moroccan Saffa",
     description: "Elegant Moroccan suite with cultural charm",
+    rating : 4.5,
+    price : 55
   },
   {
     image: dish03,
     title: "Moroccan Harira",
     description: "Hearty Moroccan soup with tomatoes, lentils, chickpeas, and fragrant spices.",
+    rating : 4,
+    price : 80 
   },
   {
     image: dish04,
     title: "Tacos",
     description: "Soft tortillas filled with seasoned meat, fresh salsa, and zesty toppings.",
+    rating : 4,
+    price : 80 
   },
   {
     image: dish05,
     title: "Pizza",
     description: "Classic Italian-style pizza with a crispy crust, tangy tomato sauce, and melted cheese.",
+    rating : 4,
+    price : 80 
   },
   {
     image: dish06,
     title: "Sushi",
     description: "Freshly rolled sushi with vinegared rice, fish, and vibrant vegetables.",
+    rating : 4,
+    price : 80 
   },
   {
     image: dish07,
     title: "Chicken Bastila ",
     description: "Moroccan flaky pastry filled with spiced shredded chicken, almonds, and a hint of cinnamon, dusted with powdered sugar.",
+    rating : 5,
+    price : 80 
   },
   {
     image: dish08,
     title: "Burger",
     description: "Juicy beef patty in a soft bun with fresh toppings and a special sauce.",
+    rating : 4,
+    price : 80 
   },
   {
     image: dish09,
     title: "Pan-Fried Ribeye Steak",
     description: "Tender ribeye steak pan-seared to a perfect crust with rich, savory flavors.",
+    rating : 4,
+    price : 80 
   },
   {
     image: dish010,
     title: "Moroccan chicken",
     description:
       "Golden-roasted Moroccan chicken marinated with spices and slow-cooked to perfection.",
+    rating : 5,
+    price : 80 
   },
 ];
 

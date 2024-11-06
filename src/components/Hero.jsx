@@ -3,6 +3,7 @@ import vid1 from '../assets/vid1.mp4'
 import logo2 from '../assets/finalLogo-removebg-preview.png'
 import logoV from '../assets/white_logo-removebg-preview.png'
 import {motion} from 'framer-motion'
+import { FaMapPin } from "react-icons/fa";
 export default function Hero() {
   return (
     <div>
@@ -53,7 +54,8 @@ export default function Hero() {
       alt=""
       className="w-1/3 lg:w-1/5 sm:w-1/5 mt-2"
     />
-    <p className="p-2 text-lg tracking-tighter text-white">Marrakech</p>
+    <p className="p-2 text-lg tracking-tighter text-white flex flex-row" > <FaMapPin  className="size-5"/> Marrakech</p>
+    
   </div>
 </div>
 
