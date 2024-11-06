@@ -1,3 +1,4 @@
+
 import React from 'react'
 import vid1 from '../assets/vid1.mp4'
 import logo2 from '../assets/finalLogo-removebg-preview.png'
