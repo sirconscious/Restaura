@@ -27,7 +27,8 @@ export default function NavBar() {
     flex w-full flex-col items-center justify-center'>
       <div className="flex w-full items-center justify-between overflow-y-hidden
       backdrop-blur-md bg-black bg-opacity-30 lg:m-2 lg:w-[50rem] lg:rounded-full lg:shadow-lg py-5 px-4">
-        <img src={logo2} alt="" width={80} height={50}/> 
+        {/* <img src={logo2} alt="" width={80} height={50}/>  */}
+        <a href="#"  className='text-base'>RiadSaveurs</a>
         <div className="hidden space-x-6 lg:flex">
           {LINKS.map((link, index)=>{
             return <a key={index} href={`#${link.targetId}`} className={`text-sm ${ index ==0 } hover:opacity-50 `}

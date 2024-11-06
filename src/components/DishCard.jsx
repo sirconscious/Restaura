@@ -14,7 +14,7 @@ export default function DishCard({ project }) {
                 
                 <div className="flex flex-col justify-center -mt-48 items-center h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p className="text-white text-lg font-semibold -mt-10">
-                        {project.price} DH
+                      
                     </p>
                     <Stack spacing={1}>
                         <Rating 
