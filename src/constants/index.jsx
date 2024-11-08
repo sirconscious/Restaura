@@ -15,148 +15,155 @@ import indian from "../assets/indian.jpeg";
 
 import { FaXTwitter, FaFacebook, FaInstagram } from "react-icons/fa6";
 import { GrLocationPin } from "react-icons/gr";
+
+// Links for the navigation
 export const LINKS = [
-  { text: "Dishes", targetId: "dishes" },
-  { text: "About", targetId: "about" },
-  { text: "Mission", targetId: "mission" },
-  { text: "Expertise", targetId: "expertise" },
-  { text: "Review", targetId: "review" },
-  { text: "Contact", targetId: "contact" },
+  { text: "LINKS.dishes", targetId: "dishes" },
+  { text: "LINKS.about", targetId: "about" },
+  { text: "LINKS.mission", targetId: "mission" },
+  { text: "LINKS.expertise", targetId: "expertise" },
+  { text: "LINKS.review", targetId: "review" },
+  { text: "LINKS.contact", targetId: "contact" },
 ];
 
+// Dish details
 export const DISHES = [
   {
     image: dish01,
-    title: "Tagine With vegtebals",
-    description: "Moroccan stew of mixed vegetables slow-cooked with warm spices",
-    rating : 4,
-    price : 80 
+    title: "DISHES.0.title", // Using translation key for title
+    description: "DISHES.0.description", // Using translation key for description
+    rating: 4,
+    price: 80
   },
   {
     image: dish02,
-    title: "Suite Moroccan Saffa",
-    description: "Elegant Moroccan suite with cultural charm",
-    rating : 4.5,
-    price : 55
+    title: "DISHES.1.title",
+    description: "DISHES.1.description",
+    rating: 4.5,
+    price: 55
   },
   {
     image: dish03,
-    title: "Moroccan Harira",
-    description: "Hearty Moroccan soup with tomatoes, lentils, chickpeas, and fragrant spices.",
-    rating : 4,
-    price : 80 
+    title: "DISHES.2.title",
+    description: "DISHES.2.description",
+    rating: 4,
+    price: 80
   },
   {
     image: dish04,
-    title: "Tacos",
-    description: "Soft tortillas filled with seasoned meat, fresh salsa, and zesty toppings.",
-    rating : 4,
-    price : 80 
+    title: "DISHES.3.title",
+    description: "DISHES.3.description",
+    rating: 4,
+    price: 80
   },
   {
     image: dish05,
-    title: "Pizza",
-    description: "Classic Italian-style pizza with a crispy crust, tangy tomato sauce, and melted cheese.",
-    rating : 4,
-    price : 80 
+    title: "DISHES.4.title",
+    description: "DISHES.4.description",
+    rating: 4,
+    price: 80
   },
   {
     image: dish06,
-    title: "Sushi",
-    description: "Freshly rolled sushi with vinegared rice, fish, and vibrant vegetables.",
-    rating : 4,
-    price : 80 
+    title: "DISHES.5.title",
+    description: "DISHES.5.description",
+    rating: 4,
+    price: 80
   },
   {
     image: dish07,
-    title: "Chicken Bastila ",
-    description: "Moroccan flaky pastry filled with spiced shredded chicken, almonds, and a hint of cinnamon, dusted with powdered sugar.",
-    rating : 5,
-    price : 80 
+    title: "DISHES.6.title",
+    description: "DISHES.6.description",
+    rating: 5,
+    price: 80
   },
   {
     image: dish08,
-    title: "Burger",
-    description: "Juicy beef patty in a soft bun with fresh toppings and a special sauce.",
-    rating : 4,
-    price : 80 
+    title: "DISHES.7.title",
+    description: "DISHES.7.description",
+    rating: 4,
+    price: 80
   },
   {
     image: dish09,
-    title: "Pan-Fried Ribeye Steak",
-    description: "Tender ribeye steak pan-seared to a perfect crust with rich, savory flavors.",
-    rating : 4,
-    price : 80 
+    title: "DISHES.8.title",
+    description: "DISHES.8.description",
+    rating: 4,
+    price: 80
   },
   {
     image: dish010,
-    title: "Moroccan chicken",
-    description:
-      "Golden-roasted Moroccan chicken marinated with spices and slow-cooked to perfection.",
-    rating : 5,
-    price : 80 
-  },
+    title: "DISHES.9.title",
+    description: "DISHES.9.description",
+    rating: 5,
+    price: 80
+  }
 ];
 
+
+
+// About section text
 export const ABOUT = {
-  header: "We love cooking!",
-  content:
-    "At RiadSaveur, we believe that great food goes beyond taste; it tells a story of dedication and creativity. From our chef's signature creations to our attentive service, every detail is curated to ensure your visit is nothing short of exceptional. Whether you're savoring our renowned Tikka Kebab or exploring our diverse menu inspired by global flavors, each dish is a celebration of flavor and innovation. Join us for a culinary journey where every bite leaves a lasting impression. Experience RiadSaveur—where every meal is a masterpiece.",
+  header: "ABOUT.header",  // key for translation
+  content: "ABOUT.content" // key for translation
 };
 
+// Mission section text
 export const MISSION =
-  "At our restaurant, our mission is to create delicious and memorable dining experiences.";
+  "MISSION.text";  // Translation key for the mission statement
 
+// Cuisines section text
 export const CUSINES = [
   {
     number: "01.",
     image: italian,
-    title: "Italian",
+    title: "CUSINES.italian",  // Using translation keys
     description:
-      "Experience the flavors of Italy with our exquisite Italian cuisine, featuring traditional recipes and contemporary dishes.",
+      "CUSINES.italian_description",  // Using translation keys
   },
   {
     number: "02.",
     image: japanese,
-    title: "Japanese",
+    title: "CUSINES.japanese",  // Using translation keys
     description:
-      "Delight in the art of Japanese culinary excellence, offering a fusion of classic and modern flavors.",
+      "CUSINES.japanese_description",  // Using translation keys
   },
   {
     number: "03.",
     image: indian,
-    title: "Indian",
+    title: "CUSINES.indian",  // Using translation keys
     description:
-      "Indulge in the rich and diverse tastes of India, with a menu that celebrates the country's culinary heritage.",
+      "CUSINES.indian_description",  // Using translation keys
   },
 ];
 
+// Review section text
 export const REVIEW = {
-  name: "Xaviour Fernando",
-  profession: "Food Critic",
+  name: "REVIEW.name",  // Translation key for reviewer name
+  profession: "REVIEW.profession",  // Translation key for profession
   content:
-    "“As a seasoned food critic, my expectations are always high when stepping into a new dining establishment. RiadSaveur, with its unassuming exterior and elegantly designed interior, promised a unique culinary experience from the moment I walked in. And I must say, it delivered beyond my expectations.”",
+    "REVIEW.content",  // Translation key for review content
 };
 
+// Contact information
 export const CONTACT = [
-  { key: "address", value: "Address: 123 Main Street, Paris, France, 345678" },
-  { key: "phone", value: "Phone: 123-456-7890" },
-  { key: "email", value: "Email: contact@restaurant.com" },
+  { key: "CONTACT.address", value: "CONTACT.address_value" },  // key for translation
+  { key: "CONTACT.phone", value: "CONTACT.phone_value" },  // key for translation
+  { key: "CONTACT.email", value: "CONTACT.email_value" },  // key for translation
 ];
 
+// Social Media Links
 export const SOCIAL_MEDIA_LINKS = [
   {
-    href: "https://x.com/",
+    href: "https://x.com/restaurant/",
     icon: <FaFacebook fontSize={30} className="hover:opacity-80" />,
   },
-
   {
-    href: "https://x.com/",
+    href: "https://x.com/restaurant/",
     icon: <FaInstagram fontSize={30} className="hover:opacity-80" />,
   },
   {
-    href: "https://x.com/",
+    href: "https://x.com/restaurant/",
     icon: <FaXTwitter fontSize={30} className="hover:opacity-80" />,
   },
 ];
-

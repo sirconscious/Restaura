@@ -5,10 +5,14 @@ import logo2 from '../assets/finalLogo-removebg-preview.png'
 import logoV from '../assets/white_logo-removebg-preview.png'
 import {motion} from 'framer-motion'
 import { FaMapPin } from "react-icons/fa";
+
 export default function Hero() {
   return (
     <div>
+      
       <section className='relative flex h-screen items-center justify-center '>
+  
+       
         <div className="absolute inset-0 -z-20 h-full w-full overflow-hidden ">
             <video src={vid1} autoPlay muted loop playsInline  className='h-full w-full object-cover'></video>
         </div>

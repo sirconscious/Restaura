@@ -1,0 +1,129 @@
+
+{
+    
+        "LINKS": {
+          "dishes": "Plats",
+          "about": "À propos",
+          "mission": "Mission",
+          "expertise": "Expertise",
+          "review": "Avis",
+          "contact": "Contact"
+        }
+      ,
+  
+    "DISHES": [
+      {
+        "image": "../assets/dish01.jpg",
+        "title": "Tagine aux légumes",
+        "description": "Ragoût marocain de légumes mélangés cuit lentement avec des épices chaudes",
+        "rating": 4,
+        "price": 80
+      },
+      {
+        "image": "../assets/dish02.jpeg",
+        "title": "Suite Marocaine Saffa",
+        "description": "Élégante suite marocaine avec charme culturel",
+        "rating": 4.5,
+        "price": 55
+      },
+      {
+        "image": "../assets/dish03.jpeg",
+        "title": "Harira Marocaine",
+        "description": "Soupe marocaine copieuse avec des tomates, lentilles, pois chiches et épices parfumées.",
+        "rating": 4,
+        "price": 80
+      },
+      {
+        "image": "../assets/dish04.jpeg",
+        "title": "Tacos",
+        "description": "Tortillas souples remplies de viande assaisonnée, salsa fraîche et garnitures piquantes.",
+        "rating": 4,
+        "price": 80
+      },
+      {
+        "image": "../assets/dish05.jpeg",
+        "title": "Pizza",
+        "description": "Pizza à l'italienne classique avec une croûte croustillante, sauce tomate acidulée et fromage fondu.",
+        "rating": 4,
+        "price": 80
+      },
+      {
+        "image": "../assets/dish06.jpeg",
+        "title": "Sushi",
+        "description": "Sushi frais roulé avec du riz vinaigré, du poisson et des légumes vibrants.",
+        "rating": 4,
+        "price": 80
+      },
+      {
+        "image": "../assets/dish07.jpeg",
+        "title": "Bastila au poulet",
+        "description": "Pâtisserie marocaine feuilletée farcie de poulet effiloché épicé, d'amandes et d'une touche de cannelle, saupoudrée de sucre glace.",
+        "rating": 5,
+        "price": 80
+      },
+      {
+        "image": "../assets/dish08.jpeg",
+        "title": "Burger",
+        "description": "Juteux steak haché de bœuf dans un pain moelleux avec des garnitures fraîches et une sauce spéciale.",
+        "rating": 4,
+        "price": 80
+      },
+      {
+        "image": "../assets/dish09.jpeg",
+        "title": "Entrecôte de Ribeye Poêlée",
+        "description": "Entrecôte tendre poêlée jusqu'à une croûte parfaite avec des saveurs riches et savoureuses.",
+        "rating": 4,
+        "price": 80
+      },
+      {
+        "image": "../assets/dish010.jpeg",
+        "title": "Poulet Marocain",
+        "description": "Poulet marocain rôti doré mariné avec des épices et cuit lentement à la perfection.",
+        "rating": 5,
+        "price": 80
+      }
+    ],
+  
+    "ABOUT": {
+      "header": "Nous aimons cuisiner !",
+      "content": "Chez RiadSaveur, nous croyons que la bonne nourriture va au-delà du goût ; elle raconte une histoire de dévouement et de créativité. De la signature de notre chef à notre service attentionné, chaque détail est soigné pour garantir que votre visite soit exceptionnelle. Que vous savouriez notre renommé Tikka Kebab ou que vous exploriez notre menu diversifié inspiré des saveurs mondiales, chaque plat est une célébration de saveurs et d'innovation. Rejoignez-nous pour un voyage culinaire où chaque bouchée laisse une impression durable. Découvrez RiadSaveur—où chaque repas est une œuvre d'art."
+    },
+  
+    "MISSION": "Dans notre restaurant, notre mission est de créer des expériences gastronomiques délicieuses et mémorables.",
+  
+    "CUSINES": [
+      {
+        "number": "01.",
+        "image": "../assets/italian.jpeg",
+        "title": "Italien",
+        "description": "Découvrez les saveurs de l'Italie avec notre cuisine italienne exquise, comprenant des recettes traditionnelles et des plats contemporains."
+      },
+      {
+        "number": "02.",
+        "image": "../assets/japanese.jpeg",
+        "title": "Japonais",
+        "description": "Savourez l'excellence culinaire japonaise, offrant une fusion de saveurs classiques et modernes."
+      },
+      {
+        "number": "03.",
+        "image": "../assets/indian.jpeg",
+        "title": "Indien",
+        "description": "Savourez les saveurs riches et diverses de l'Inde, avec un menu qui célèbre l'héritage culinaire du pays."
+      }
+    ],
+  
+    "REVIEW": [
+      {
+        "name": "Xaviour Fernando",
+        "profession": "Critique Culinaire",
+        "content": "“En tant que critique culinaire chevronné, mes attentes sont toujours élevées lorsque je me rends dans un nouveau restaurant. RiadSaveur, avec son extérieur discret et son intérieur élégamment conçu, promettait une expérience culinaire unique dès que je suis entré. Et je dois dire, elle a largement dépassé mes attentes.”"
+      }
+    ],
+  
+    "CONTACT": [
+      { "key": "address", "value": "Adresse: 123 Main Street, Paris, France, 345678" },
+      { "key": "phone", "value": "Téléphone: 123-456-7890" },
+      { "key": "email", "value": "Email: contact@restaurant.com" }
+    ]
+  }
+  
