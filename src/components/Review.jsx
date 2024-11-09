@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import  {REVIEW} from '../constants/index'
+import { useTranslation } from 'react-i18next'; 
 import xaviour from '../assets/xaviour.jpeg'
 import customer1 from '../assets/customer1.jpeg'
 import customer2 from '../assets/customer2.jpeg'
@@ -7,7 +8,7 @@ import customer3 from '../assets/customer3.jpeg'
 import customer4 from '../assets/customer4.jpeg'
 import {motion} from 'framer-motion'
 export default function Review() {
-
+const {t}=useTranslation();
     const containerVariants = {
         hidden : {opacity : 0},
         show : {opacity : 1} ,
@@ -48,16 +49,16 @@ export default function Review() {
             <p className='mb-10 text-3xl font-light leading-normal 
                 lg:mx-40 lg:text-[3.5rem]
             '>
-                    {REVIEW.content}
+                    {t('REVIEW.0.content')}
             </p>
             <div className="flex items-center justify-center gap-6">
                 <img src={xaviour} width={80} height={80} className='rounded-full border' />
                 <div className="tracking-tighter">
                     <h6>
-                        {REVIEW.name}
+                    {t('REVIEW.0.name')}
                     </h6>
                     <p className='text-sm text-neutral-500'>
-                        {REVIEW.profession}
+                    {t('REVIEW.0.profession')}
                     </p>
                 </div>
             </div>
