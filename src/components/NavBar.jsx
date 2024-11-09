@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';  // Import useTranslation
 import { FaTimes, FaBars } from 'react-icons/fa';
 import { LINKS } from '../constants/index';
+import {  Outlet,Link } from 'react-router-dom'
+
 import LanguageSwitcher from './languageSwitcher';
 
 export default function NavBar() {
@@ -25,6 +27,7 @@ export default function NavBar() {
   };
 
   return (
+    <>
     <nav className='fixed top-4 z-50 flex flex-col lg:flex-row-reverse w-full items-center justify-center'>
 
          <div className="hidden lg:block fixed top-8  lg:right-8 z-30"> <LanguageSwitcher></LanguageSwitcher></div>
@@ -70,5 +73,8 @@ export default function NavBar() {
         </div>
       )}
     </nav>
+    <Outlet/>
+    </>
+
   );
 }

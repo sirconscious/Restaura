@@ -1,29 +1,22 @@
 import React from 'react'
-import './i18n';
-import Hero from './components/Hero'
+import HomePage from './pages/HomePage'
 import NavBar from './components/NavBar'
-import Dishes from './components/Dishes'
-import About from './components/About'
-import Mission from './components/Mission'
-import Expertise from './components/Expertise'
-import Review from './components/Review'
-import ContactSection from './components/ContactSection'
-import Footer from './components/Footer'
-
+import LoginPage from './pages/LoginPage'
+import LoginPage02 from './pages/LoginPage02'
+import {BrowserRouter , Routes, Route , Link} from 'react-router-dom'
 export default function App() {
   return (
-    <main className='overflow-y-hidden text-neutral-200'>
-      
-      <Hero/>
-  
-      <NavBar/>
-      <Dishes/>
-      <About/>
-      <Mission/>
-      <Expertise/>
-      <Review/>
-      <ContactSection/>
-      <Footer/>
+    <main className="overflow-y-hidden text-neutral-200">
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<NavBar/>}>
+        <Route index element={<HomePage/>}/>
+        <Route path='/signup' element={<LoginPage/>}/>
+        <Route path='/Login' element={<LoginPage02/>}/>
+      </Route>
+    </Routes>
+    </BrowserRouter>
     </main>
   )
 }
+
