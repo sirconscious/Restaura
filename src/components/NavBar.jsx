@@ -27,7 +27,7 @@ export default function NavBar() {
   return (
     <nav className='fixed top-4 z-50 flex flex-col lg:flex-row-reverse w-full items-center justify-center'>
 
-         <div className="hidden lg:block fixed top-4 lg:right-4 z-30"> <LanguageSwitcher></LanguageSwitcher></div>
+         <div className="hidden lg:block fixed top-8  lg:right-8 z-30"> <LanguageSwitcher></LanguageSwitcher></div>
       <div className="flex w-full items-center justify-between overflow-y-hidden backdrop-blur-md bg-black bg-opacity-30 lg:m-2 lg:w-[50rem] lg:rounded-full lg:shadow-lg py-5 px-4">
        
         <a href="#" className='text-base'>RiadSaveurs</a>

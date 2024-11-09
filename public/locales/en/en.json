@@ -8,15 +8,7 @@
     "review": "Review",
     "contact": "Contact"
   },
-   "HEADERS":{
-    "dishes":"Our Pupular Dishes",
-    "about":"About Us",
-    "mission":"Our Mission",
-    "Expertise":"Our Expertise",
-    "contact":"Contact Us"
-
-    
-   },
+  
     
         "DISHES": [
           {

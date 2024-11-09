@@ -147,9 +147,9 @@ export const REVIEW = {
 
 // Contact information
 export const CONTACT = [
-  { key: "CONTACT.address", value: "CONTACT.address_value" },  // key for translation
-  { key: "CONTACT.phone", value: "CONTACT.phone_value" },  // key for translation
-  { key: "CONTACT.email", value: "CONTACT.email_value" },  // key for translation
+  { key: "address", value: "Address: 123 Main Street, Paris, France, 345678" },
+      { key: "phone", value: "Phone: 123-456-7890" },
+      { key: "email", value: "Email: contact@restaurant.com" }
 ];
 
 // Social Media Links

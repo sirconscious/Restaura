@@ -1,6 +1,8 @@
 // src/components/LanguageSwitcher.js
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import flagEn from '../assets/kingdom-flag.jpg';
+import flagFr from '../assets/flag-france.jpg';
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
@@ -12,12 +14,13 @@ const LanguageSwitcher = () => {
 
   return (
     
-    <button 
-  onClick={toggleLanguage} 
-  className=" m-4 text-sm px-4 py-2 bg-gray-800 bg-opacity-40 text-white rounded-xl hover:bg-gray-700 transition duration-300   focus:ring-gray-500"
->
-  {i18n.language === 'en' ? 'Fr' : 'En'}
-</button>
+//     <button 
+ 
+//   className=" m-4 text-sm px-4 py-2 bg-gray-800 bg-opacity-40 text-white rounded-xl hover:bg-gray-700 transition duration-300   focus:ring-gray-500"
+// >
+  <img  onClick={toggleLanguage}  src={i18n.language === 'en' ? flagEn : flagFr} alt="flag" className='sm:ml-4 sm:mb-4 transition-all w-10 cursor-pointer  ' />
+
+// </button>
 
   );
 };
