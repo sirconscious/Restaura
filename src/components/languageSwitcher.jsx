@@ -14,13 +14,10 @@ const LanguageSwitcher = () => {
 
   return (
     
-//     <button 
- 
-//   className=" m-4 text-sm px-4 py-2 bg-gray-800 bg-opacity-40 text-white rounded-xl hover:bg-gray-700 transition duration-300   focus:ring-gray-500"
-// >
+
   <img  onClick={toggleLanguage}  src={i18n.language === 'en' ? flagEn : flagFr} alt="flag" className='sm:ml-4 sm:mb-4 rounded-md border-gray-500 border transition-all w-11 cursor-pointer  ' />
 
-// </button>
+
 
   );
 };

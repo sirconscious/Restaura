@@ -1,10 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import vid1 from '../assets/vid1.mp4';
-import logo2 from '../assets/finalLogo-removebg-preview.png';
-import logoV from '../assets/white_logo-removebg-preview.png';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState } from "react";
+import { FaArrowRight } from "react-icons/fa";
+
+import vid1 from "../assets/vid1.mp4";
+import logo2 from "../assets/finalLogo-removebg-preview.png";
+import logoV from "../assets/white_logo-removebg-preview.png";
+import { motion } from "framer-motion";
 import { FaMapPin } from "react-icons/fa";
-import { WiDaySunny, WiCloud, WiRain, WiSnow, WiFog, WiThermometer } from "react-icons/wi"; 
+import {
+  WiDaySunny,
+  WiCloud,
+  WiRain,
+  WiSnow,
+  WiFog,
+  WiThermometer,
+} from "react-icons/wi";
 
 export default function Hero() {
   const [weatherData, setWeatherData] = useState(null);
@@ -12,7 +21,9 @@ export default function Hero() {
 
   const search = async (city) => {
     try {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${import.meta.env.VITE_APP_ID}`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${
+        import.meta.env.VITE_APP_ID
+      }`;
       const response = await fetch(url);
       const data = await response.json();
 
@@ -25,7 +36,7 @@ export default function Hero() {
         setError(`Error: ${data.message}`);
       }
     } catch (err) {
-      setError('Failed to fetch weather data.');
+      setError("Failed to fetch weather data.");
     }
   };
 
@@ -36,17 +47,17 @@ export default function Hero() {
   // Function to get the appropriate weather icon
   const getWeatherIcon = (weatherType) => {
     switch (weatherType) {
-      case 'Clear':
+      case "Clear":
         return <WiDaySunny size={24} />;
-      case 'Clouds':
+      case "Clouds":
         return <WiCloud size={24} />;
-      case 'Rain':
+      case "Rain":
         return <WiRain size={24} />;
-      case 'Snow':
+      case "Snow":
         return <WiSnow size={24} />;
-      case 'Fog':
-      case 'Mist':
-      case 'Haze':
+      case "Fog":
+      case "Mist":
+      case "Haze":
         return <WiFog size={24} />;
       default:
         return <WiThermometer size={24} />;
@@ -54,17 +65,34 @@ export default function Hero() {
   };
   const today = new Date();
 
-  const currentDate = today.toISOString().split('T')[0];
+  const currentDate = today.toISOString().split("T")[0];
   const currentYear = today.getFullYear();
 
   return (
     <div>
-      <section className='relative flex h-screen items-center justify-center'>
+      <section className="relative flex h-screen items-center justify-center">
         <div className="absolute inset-0 -z-20 h-full w-full overflow-hidden">
-          <video src={vid1} autoPlay muted loop playsInline className='h-full w-full object-cover'></video>
+          <video
+            src={vid1}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="h-full w-full object-cover"
+          ></video>
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent from-70% to-black"></div>
-
+        {/* Log in Sign up */}
+        <div className="absolute bottom-20 left-20 z-10 hidden lg:block">
+          <button
+            type="button"
+            className="text-white  border  hover:bg-white hover:text-neutral-900 
+         focus:outline-none  font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2 border-white hover:border-neutral-900 hover:dark:bg-neutral-300 flex justify-center items-center "
+          >
+            {" "}
+            <span className="mr-3">Reservation</span> <FaArrowRight />{" "}
+          </button>
+        </div>
         {/* Logo and location */}
         <div className="relative z-20 flex h-screen flex-col justify-end items-center pb-5">
           <motion.img
@@ -75,7 +103,7 @@ export default function Hero() {
             className="w-1/3 sm:w-1/4 md:w-1/5 lg:w-1/6"
             alt=""
           />
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center ">
             <motion.img
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -84,15 +112,24 @@ export default function Hero() {
               alt=""
               className="w-1/3 lg:w-1/5 sm:w-1/5 mt-2"
             />
-            <p className="p-2 text-lg tracking-tighter text-white flex flex-row">
+
+            <p className="p-2  text-lg tracking-tighter text-white flex flex-row">
               <FaMapPin className="mr-2" /> Marrakech
             </p>
           </div>
+          <button
+            type="button"
+            className="text-white  border  hover:bg-white hover:text-neutral-900 
+         focus:outline-none  font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2 border-white hover:border-neutral-900 hover:dark:bg-neutral-300 flex lg:hidden justify-center items-center "
+          >
+            {" "}
+            <span className="mr-3">Reservation</span> <FaArrowRight />{" "}
+          </button>
         </div>
 
         {/* Weather data on the bottom right */}
         <div className="absolute bottom-10 right-5 p-6 bg-black bg-opacity-30 rounded-lg shadow-xl text-white flex items-center space-x-4 hidden sm:block">
-        {error ? (
+          {error ? (
             <p className="text-red-500 font-semibold">{error}</p>
           ) : weatherData ? (
             <>
@@ -101,7 +138,9 @@ export default function Hero() {
                 {currentDate}
                 <div className="flex items-center space-x-2">
                   {getWeatherIcon(weatherData.weatherType)}
-                  <p className="text-xl font-semibold">{weatherData.temperature}°C</p>
+                  <p className="text-xl font-semibold">
+                    {weatherData.temperature}°C
+                  </p>
                 </div>
               </div>
             </>
@@ -109,7 +148,6 @@ export default function Hero() {
             <p>Loading weather data...</p>
           )}
         </div>
-
       </section>
     </div>
   );
