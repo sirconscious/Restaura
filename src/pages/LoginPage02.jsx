@@ -1,5 +1,7 @@
 import React from 'react';
 import "../style.css";
+import {  Link } from 'react-router-dom';
+
 export default function LoginPage02() {
     const [email, setEmail] = React.useState('');   
     const [password, setPassword] = React.useState('');
@@ -52,6 +54,7 @@ export default function LoginPage02() {
             </div>
             {error && <p className="error-message">Invalid email or password.</p>}
             <button type='button' onClick={handleClick}>Log in</button>
+            <Link to="/signup"><p>Dont have an account? <a href="">Sign up</a> </p></Link>
         </form>
         <div className="form-section">
         </div>

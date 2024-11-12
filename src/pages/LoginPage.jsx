@@ -1,5 +1,7 @@
 import React from 'react';
 import "../style.css";
+import {  Link } from 'react-router-dom';
+
 export default function LoginPage() {
   return (
     <div className=' flex w-full h-screen items-center justify-center  bg-neutral-500'>
@@ -16,7 +18,7 @@ export default function LoginPage() {
             <button type='submit'>Sign up</button>
         </form>
         <div className="form-section">
-        <p>Have an account? <a href="">Log in</a> </p>
+       <Link to="/login"><p>Have an account? <a href="">Log in</a> </p></Link> 
         </div>
       </div>
     </div>
