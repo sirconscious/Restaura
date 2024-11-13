@@ -25,7 +25,7 @@ function Login() {
         if (response.data && response.data.status === "success") {
           setMessage("Success: " + response.data.message);
           // Redirect to another page after successful login
-          navigate("/dashboard"); // Example of navigating to a dashboard page after login
+          navigate("/Reservations"); // Example of navigating to a dashboard page after login
         } else {
           setMessage("Error: " + response.data.message);
         }

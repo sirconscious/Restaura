@@ -7,10 +7,10 @@ import {BrowserRouter , Routes, Route , Link} from 'react-router-dom'
 import Reservations from './pages/Reservations'
 export default function App() {
   return (
-    <main className="overflow-y-hidden text-neutral-200">
+    <main className="overflow-y-hidden ">
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<NavBar/>}>
+      <Route path='/' element={<NavBar className="text-neutral-200"/>}>
         <Route index element={<HomePage/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/Login' element={<Login/>}/>
