@@ -167,3 +167,35 @@ export const SOCIAL_MEDIA_LINKS = [
     icon: <FaXTwitter fontSize={30} className="hover:opacity-80" />,
   },
 ];
+
+export const tablesInfo = [{
+    "table_id": 1,
+    "description": "Cozy corner table near the window with a view.",
+    "max_capacity": 4,
+    "features": ["Window view", "Comfortable seating", "Natural lighting"]
+  },
+  {
+    "table_id": 2,
+    "description": "Intimate two-person table by the fireplace.",
+    "max_capacity": 2,
+    "features": ["Fireplace nearby", "Perfect for couples", "Warm lighting"]
+  },
+  {
+    "table_id": 3,
+    "description": "Large family table near the play area.",
+    "max_capacity": 6,
+    "features": ["Family-friendly", "Near play area", "High chairs available"]
+  },
+  {
+    "table_id": 4,
+    "description": "Spacious table suitable for groups or celebrations.",
+    "max_capacity": 8,
+    "features": ["Private area", "Ideal for gatherings", "Soundproof"]
+  },
+  {
+    "table_id": 5,
+    "description": "Quiet table in the library-themed area for study or work.",
+    "max_capacity": 2,
+    "features": ["Quiet ambiance", "Ideal for work or study", "Good lighting"]
+  }
+]

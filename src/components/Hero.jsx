@@ -86,7 +86,7 @@ export default function Hero() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent from-70% to-black"></div>
         {/* Log in Sign up */}
         <div className="absolute bottom-20 left-20 z-10 hidden lg:block">
-          <Link to="/login">
+          <Link to="/SignUp">
           <button
             type="button"
             className="text-white  border  hover:bg-white hover:text-neutral-900 
