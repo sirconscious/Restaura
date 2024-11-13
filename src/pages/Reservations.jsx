@@ -53,20 +53,22 @@ function Reservations() {
                 'Content-Type': 'multipart/form-data'
             }
         })
-            .then((response) => {
-                if (response.data.status === "success" && response.data.data.length > 0) {
-                    setTables(response.data.data);
-                    setError("");
-                    setBackToForm(true);
-                } else {
-                    setTables([]);
-                    setError("No available tables found.");
-                }
-            })
-            .catch((error) => {
-                console.error("Error in request:", error);
-                setError("Failed to make the reservation. Please try again.");
-            });
+        .then((response) => {
+            console.log(response.data); // Check the structure of the response
+            if (response.data.status === "success" && response.data.data && response.data.data.length > 0) {
+                setTables(response.data.data); // Populate tables with the available data
+                setError("");
+                setBackToForm(true);
+            } else {
+                setTables([]);
+                setError(response.data.message || "No available tables found.");
+            }
+        })
+        .catch((error) => {
+            console.error("Error in request:", error);
+            setError("Failed to make the reservation. Please try again.");
+        });
+        
     };
 
     const getTableInfo = (tableId) => {
@@ -78,129 +80,119 @@ function Reservations() {
         <div className="w-full min-h-screen flex items-center justify-center bg-[url('/src/assets/Riadsss.png')] bg-cover bg-center">
             <div className="w-full w-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16  p-6 ">
             {/* <div className="w-full w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 bg-slate-100 p-6 md:p-8"> */}
-                <div className="flex flex-col justify-center items-center text-center bg-white bg-opacity-50 p-6  rounded-lg shadow-xl max-w-md w-full mx-auto">
-                {/* <div className="flex flex-col justify-center items-center text-center bg-white bg-opacity-90 p-6 md:p-8 rounded-lg shadow-xl max-w-md w-full mx-auto"> */}
-                    {backToForm ? (
-                        <>
-                            <button onClick={() => setBackToForm(false)} className="mb-4">
-                                <IoArrowBackCircleOutline size={50} />
-                            </button>
-                            {tables && tables.length > 0 ? (
-                                <ul className="divide-y divide-gray-200 w-full max-h-96 overflow-y-auto">
-                                {tables.filter((table) => table.reserved === 0).map((table) => {
-                                    const tableDetails = getTableInfo(table.table_id);
-                                    return (
-                                        <li key={table.table_id} className="py-4 flex items-center justify-between">
-                                            <div className="flex items-center space-x-4">
-                                                {/* Table image */}
-                                                <img
-                                                    src={table1} 
-                                                    alt={`Table ${table.table_id}`}
-                                                    className="w-20 h-20 rounded-lg object-cover"
-                                                />
-                                                <div>
-                                                    <span className="text-lg font-bold">Table {table.table_id}</span>
-                                                    {tableDetails && (
-                                                        <div className='text-left'>
-                                                            <p className="text-base text-black">{tableDetails.description}</p>
-                                                            <p className="text-sm text-gray-800">Max Capacity: {tableDetails.max_capacity}</p>
-                                                            <ul className="text-sm text-gray-800">
-                                                                {tableDetails.features.map((feature, index) => (
-                                                                    <li key={index}>• {feature}</li>
-                                                                ))}
-                                                            </ul>
-                                                            {/* <p className="text-sm text-gray-600">{tableDetails.description}</p>
-                                                            <p className="text-xs text-gray-500">Max Capacity: {tableDetails.max_capacity}</p>
-                                                            <ul className="text-xs text-gray-500">
-                                                                {tableDetails.features.map((feature, index) => (
-                                                                    <li key={index}>• {feature}</li>
-                                                                ))}
-                                                            </ul> */}
-                                                        </div>
-                                                    )}
-                                                </div>
+            <div className="flex flex-col justify-center items-center text-center bg-white bg-opacity-50 p-6 rounded-lg shadow-xl max-w-md w-full mx-auto">
+    {backToForm ? (
+        <>
+            <button onClick={() => setBackToForm(false)} className="mb-4">
+                <IoArrowBackCircleOutline size={50} />
+            </button>
+            {tables && tables.length > 0 ? (
+                <ul className="divide-y divide-gray-200 w-full max-h-96 overflow-y-auto">
+                    {tables.filter((table) => table.reserved === 0).map((table) => {
+                        const tableDetails = getTableInfo(table.table_id);
+                        return (
+                            <li key={table.table_id} className="py-4 flex items-center justify-between">
+                                <div className="flex items-center space-x-4">
+                                    {/* Table image */}
+                                    <img
+                                        src={table1}
+                                        alt={`Table ${table.table_id}`}
+                                        className="w-20 h-20 rounded-lg object-cover"
+                                    />
+                                    <div>
+                                        <span className="text-lg font-bold">Table {table.table_id}</span>
+                                        {tableDetails && (
+                                            <div className="text-left">
+                                                <p className="text-base text-black">{tableDetails.description}</p>
+                                                <p className="text-sm text-gray-800">Max Capacity: {tableDetails.max_capacity}</p>
+                                                <ul className="text-sm text-gray-800">
+                                                    {tableDetails.features.map((feature, index) => (
+                                                        <li key={index}>• {feature}</li>
+                                                    ))}
+                                                </ul>
                                             </div>
-                                            <button
-                                                onClick={() => handleTableSelection(table.table_id)}
-                                                className={`bg-${selectedTable === table.table_id ? 'green' : 'blue'}-500 hover:bg-${selectedTable === table.table_id ? 'green' : 'blue'}-700 text-slate-800 font-bold py-2 px-4 rounded`}
-                                            >
-                                                {selectedTable === table.table_id ? "Selected" : "Select"}
-                                            </button>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                            ) :
-
-                                (
-                                    <div className="text-red-500 text-sm mt-2">{error}</div>
-                                )}
-                            <button
-                                onClick={handleSubmit}
-                                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4 w-full"
-                            >
-                                Reserve
-                            </button>
-                        </>
-                    ) : (
-                        <>
-                            <h1 className="text-3xl md:text-4xl font-bold text-slate-700 mb-4 md:mb-8">Reserve a Table</h1>
-                            <p className="font-semibold text-lg md:text-xl mb-4 md:mb-6">Make your reservation now</p>
-                            <form onSubmit={handleSubmit} className="space-y-4 w-full">
-                                <input
-                                    type="date"
-                                    name="date"
-                                    id="date"
-                                    value={date}
-                                    onChange={(e) => setDate(e.target.value)}
-                                    className="border-2 border-neutral-950 p-3 w-full rounded-md"
-                                />
-                                <input
-                                    type="time"
-                                    value={time}
-                                    onChange={(e) => setTime(e.target.value)}
-                                    className="border-2 border-neutral-950 p-3 w-full rounded-md"
-                                />
-                                {error && (
-                                    <div className="text-red-500 text-sm mt-2">{error}</div>
-                                )}
-                                <div className="flex items-center mt-4">
-                                    <button
-                                        type="button"
-                                        onClick={handleDecrement}
-                                        className="px-4 py-3 bg-white border-2 border-neutral-950 hover:bg-gray-400 rounded-l-md text-gray-700"
-                                    >
-                                        -
-                                    </button>
-                                    <div className="relative">
-                                        <input
-                                            type="text"
-                                            value={count}
-                                            onChange={handleChange} // Updated this line
-                                            className="text-center px-3 py-3 border-t-2 border-b-2 border-neutral-950 lg:w-72 md:w-20"
-                                            min="1"
-                                            max="15"
-                                        />
-
-                                        <span className="absolute inset-y-0 left-3 flex items-center text-gray-500">guests</span>
+                                        )}
                                     </div>
-                                    <button
-                                        type="button"
-                                        onClick={handleIncrement}
-                                        className="px-4 py-3 bg-white hover:bg-gray-400 rounded-r-md border-2 border-neutral-950 text-gray-700"
-                                    >
-                                        +
-                                    </button>
                                 </div>
-                                <input
-                                    type="submit"
-                                    value="Find a Table"
-                                    className="text-slate-50 bg-slate-700 w-full mt-4 md:mt-6 py-3 rounded-md font-semibold hover:bg-slate-800"
-                                />
-                            </form>
-                        </>
-                    )}
+                                <button
+                                    onClick={() => handleTableSelection(table.table_id)}
+                                    className={`bg-${selectedTable === table.table_id ? 'green' : 'blue'}-500 hover:bg-${selectedTable === table.table_id ? 'green' : 'blue'}-700 text-slate-800 font-bold py-2 px-4 rounded`}
+                                >
+                                    {selectedTable === table.table_id ? "Selected" : "Select"}
+                                </button>
+                            </li>
+                        );
+                    })}
+                </ul>
+            ) : (
+                <div className="text-red-500 text-sm mt-2">{error}</div>
+            )}
+            <button
+                onClick={handleSubmit}
+                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4 w-full"
+            >
+                Reserve
+            </button>
+        </>
+    ) : (
+        <>
+            <h1 className="text-3xl md:text-4xl font-bold text-slate-700 mb-4 md:mb-8">Reserve a Table</h1>
+            <p className="font-semibold text-lg md:text-xl mb-4 md:mb-6">Make your reservation now</p>
+            <form onSubmit={handleSubmit} className="space-y-4 w-full">
+                <input
+                    type="date"
+                    name="date"
+                    id="date"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="border-2 border-neutral-950 p-3 w-full rounded-md"
+                />
+                <input
+                    type="time"
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                    className="border-2 border-neutral-950 p-3 w-full rounded-md"
+                />
+                {error && (
+                    <div className="text-red-500 text-sm mt-2">{error}</div>
+                )}
+                <div className="flex items-center mt-4">
+                    <button
+                        type="button"
+                        onClick={handleDecrement}
+                        className="px-4 py-3 bg-white border-2 border-neutral-950 hover:bg-gray-400 rounded-l-md text-gray-700"
+                    >
+                        -
+                    </button>
+                    <div className="relative">
+                        <input
+                            type="number"
+                            value={count}
+                            onChange={handleChange} // Updated this line
+                            className="text-center px-3 py-3 border-t-2 border-b-2 border-neutral-950 lg:w-72 md:w-20"
+                            min="1"
+                            max="15"
+                        />
+                        <span className="absolute inset-y-0 left-3 flex items-center text-gray-500">guests</span>
+                    </div>
+                    <button
+                        type="button"
+                        onClick={handleIncrement}
+                        className="px-4 py-3 bg-white hover:bg-gray-400 rounded-r-md border-2 border-neutral-950 text-gray-700"
+                    >
+                        +
+                    </button>
                 </div>
+                <input
+                    type="submit"
+                    value="Find a Table"
+                    className="text-slate-50 bg-slate-700 w-full mt-4 md:mt-6 py-3 rounded-md font-semibold hover:bg-slate-800"
+                />
+            </form>
+        </>
+    )}
+</div>
+
 
                 {/* Location Section */}
                 <div className="bg-white bg-opacity-90 p-6 md:p-8 rounded-lg shadow-2xl w-full mx-auto">
