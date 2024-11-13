@@ -1,4 +1,4 @@
- **Riad des Saveurs - Online Reservation System**
+# Riad des Saveurs - Online Reservation System
 
 ### Project Overview
 **Riad des Saveurs** is a web-based application designed for seamless restaurant reservations and personalized dining experiences. The platform offers users the ability to reserve tables, pre-order meals, and view detailed information about the restaurant ambiance and offerings.
