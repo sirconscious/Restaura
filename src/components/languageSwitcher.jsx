@@ -16,7 +16,7 @@ const LanguageSwitcher = () => {
   return (
     
 
-  <div className='p-4 lg:p-0'><img  onClick={toggleLanguage}  src={i18n.language === 'en' ? flagEn : flagFr} alt="flag" className='sm:ml-4 sm:mb-4 rounded-md border-gray-500 border transition-all w-9 cursor-pointer  ' /></div>
+  <div className='p-4 lg:p-0'><img  onClick={toggleLanguage}  src={i18n.language === 'en' ? flagFr : flagEn } alt="flag" className='sm:ml-4 sm:mb-4 rounded-md border-gray-500 border transition-all w-9 cursor-pointer  ' /></div>
 
 
 
