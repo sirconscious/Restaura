@@ -1,7 +1,7 @@
-import React from "react";
+import React ,{useState} from "react";
 
-export default function MealCard({ meal, imgSrc }) {
-    const [quantity, setQuantity] = useState(0);
+export default function MealCard({ meal, imgSrc , handleAddToCart }) {
+    const [quantity, setQuantity] = useState(1);
     const handleQuantityChange = (event) => {
       setQuantity(event.target.value);
     }
@@ -22,7 +22,7 @@ export default function MealCard({ meal, imgSrc }) {
         <p className="text-sm text-gray-500">Prep Time: {meal.preparation_time}</p>
         <label htmlFor="quantite">Quantite: </label>
         <input type="number" max={5} min={1} defaultValue={1} onChange={handleQuantityChange} name="quantite"/> <br />
-        <button className="p-2 bg-blue-500 text-white rounded-2xl" onClick={() => handleAddToCart({...meal , quantity : quantity})}>Add to cart</button>
+        <button className="p-2 bg-blue-500 text-white rounded-2xl" onClick={()=>handleAddToCart({...meal , qt : quantity})}>Add to cart</button>
       </div>
     </div>
   );
