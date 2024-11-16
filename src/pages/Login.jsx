@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import riadImage from '../assets/Riadsss.png';
+import { use } from 'i18next';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -26,6 +27,8 @@ function Login() {
           setMessage("Success: " + response.data.message);
           // Redirect to another page after successful login
           navigate("/Reservations"); // Example of navigating to a dashboard page after login
+          localStorage.setItem('userInfo', JSON.stringify({username: username, password: password , remember: remember}));
+          console.log(localStorage.getItem('userInfo'));
         } else {
           setMessage("Error: " + response.data.message);
         }
@@ -35,7 +38,16 @@ function Login() {
         setMessage("An error occurred. Please try again.");
       });
   };
-
+  useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    if (localStorage.getItem('userInfo') && userInfo.remember ) {
+      
+      setUsername(userInfo.username);
+      setPassword(userInfo.password);
+      setRemember(userInfo.remember);
+      console.log(remember);
+    }
+  },[])
   return (
     <div className="h-screen flex items-center justify-center bg-cover bg-center"
          style={{ backgroundImage: `url(${riadImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
