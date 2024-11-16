@@ -10,7 +10,7 @@ export default function App() {
     <main className="overflow-y-hidden ">
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<NavBar className="text-neutral-200"/>}>
+      <Route path='/' element={<NavBar />}>
         <Route index element={<HomePage/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/Login' element={<Login/>}/>

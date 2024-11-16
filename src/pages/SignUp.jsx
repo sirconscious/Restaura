@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import riadImage from '../assets/Riadsss.png';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
   const [username, setUsername] = useState('');
@@ -12,7 +13,7 @@ function SignUp() {
   const [lastName, setLastName] = useState('');
   const [location, setLocation] = useState('');
   const [message, setMessage] = useState(''); // To display the server response message
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -31,13 +32,18 @@ function SignUp() {
         console.log("Response data:", response.data);
         if (response.data && response.data.status === "success") {
           setMessage("Success: " + response.data.message);
+          navigate("/Reservations");
         } else {
           setMessage("Error: " + response.data.message);
         }
       })
       .catch((error) => {
-        console.error("Error in request:", error);
-        setMessage("An error occurred. Please try again.");
+        if (axios.isAxiosError(error) && error.response) {
+          console.error("Error in request:", error.response);
+          setMessage("An error occurred. Please try again.");
+        } else {
+          console.error("Unknown error:", error);
+        }
       });
   };
 
