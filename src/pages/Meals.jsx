@@ -11,14 +11,25 @@ import dish07 from "../assets/dish07.jpeg";
 import dish08 from "../assets/dish08.jpeg";
 import dish09 from "../assets/dish09.jpeg";
 import dish010 from "../assets/dish010.jpeg";
-
+import Cart from "./Cart";
 export default function Meals() {
   const [meals, setMeals] = useState([]);
   const [orderdMeals, setOrderedMeals] = useState([]);
+  const [showCart, setShowCart] = useState(false);
+  const handleShowCart = () => {
+    setShowCart(!showCart);
+    console.log("ok")
+  }
   const handleAddToCart = (meal)=>{
     setOrderedMeals([...orderdMeals, meal])
     console.log(orderdMeals);
   } 
+  const handleRemoveFromCart = (meal)=>{
+      setOrderedMeals(orderdMeals.filter(item => item.meal_id !== meal.meal_id));
+  }
+  const handleClearCart = ()=>{
+    setOrderedMeals([]);
+  }
   const mealImages = [
     dish01,
     dish02,
@@ -64,8 +75,10 @@ export default function Meals() {
               <MealCard key={meal.meal_id} meal={meal} imgSrc={mealImages[index]} handleAddToCart={handleAddToCart} />
             ))
           : "Loading..."}
-              <button className="bg-black absolute bottom-5 right-12 p-4 rounded-full">
-              <FaCartShopping size={40} className="  text-white"/>
+                          {showCart && <Cart orderdMeals={orderdMeals} handleRemoveFromCart={handleRemoveFromCart} handleClearCart={handleClearCart} />}
+
+              <button className="bg-black absolute bottom-5 right-12 p-4 rounded-full" onClick={handleShowCart}>
+              <FaCartShopping size={40} className="    text-white"/>
                 </button>  
 
       </div>
