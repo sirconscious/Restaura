@@ -85,7 +85,10 @@ export default function Hero() {
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent from-70% to-black"></div>
         {/* Log in Sign up */}
-        <div className="absolute bottom-20 left-20 z-10 hidden lg:block">
+        
+        {/* Logo and location */}
+        <div className="relative z-20 flex h-screen flex-col justify-end items-center pb-5">
+        <div className="absolute bottom-20 -left-40  right-full z-10 hidden lg:block">
           <Link to="/SignUp">
           <button
             type="button"
@@ -96,8 +99,6 @@ export default function Hero() {
             <span className="mr-3">Reservation</span> <FaArrowRight />{" "}
           </button></Link>
         </div>
-        {/* Logo and location */}
-        <div className="relative z-20 flex h-screen flex-col justify-end items-center pb-5">
           <motion.img
             initial={{ opacity: 0, y: 400, rotateY: "180deg" }}
             animate={{ opacity: 1, y: 0, rotateY: "0deg" }}

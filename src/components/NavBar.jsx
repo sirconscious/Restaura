@@ -40,7 +40,7 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className='fixed top-4 z-50 flex flex-col lg:flex-row-reverse w-full items-center justify-center'>
+      <nav className='fixed top-4 text-neutral-200 z-50 flex flex-col lg:flex-row-reverse w-full items-center justify-center'>
         <div className="hidden lg:block fixed top-8 lg:right-8 z-30">
           <LanguageSwitcher />
         </div>
@@ -86,7 +86,10 @@ export default function NavBar() {
                 {t(link.text)}
               </a>
             ))}
+            
             <LanguageSwitcher />
+           
+          
           </div>
         )}
       </nav>
