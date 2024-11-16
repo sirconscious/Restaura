@@ -1,0 +1,100 @@
+
+{
+   "LINKS": {
+    "dishes": "Dishes",
+    "about": "About",
+    "mission": "Mission",
+    "expertise": "Expertise",
+    "review": "Review",
+    "contact": "Contact"
+  },
+  
+    
+        "DISHES": [
+          {
+            "title": "Tagine With Vegetables",
+            "description": "Moroccan stew of mixed vegetables slow-cooked with warm spices"
+          },
+          {
+            "title": "Suite Moroccan Saffa",
+            "description": "Elegant Moroccan suite with cultural charm"
+          },
+          {
+            "title": "Moroccan Harira",
+            "description": "Hearty Moroccan soup with tomatoes, lentils, chickpeas, and fragrant spices."
+          },
+          {
+            "title": "Tacos",
+            "description": "Soft tortillas filled with seasoned meat, fresh salsa, and zesty toppings."
+          },
+          {
+            "title": "Pizza",
+            "description": "Classic Italian-style pizza with a crispy crust, tangy tomato sauce, and melted cheese."
+          },
+          {
+            "title": "Sushi",
+            "description": "Freshly rolled sushi with vinegared rice, fish, and vibrant vegetables."
+          },
+          {
+            "title": "Chicken Bastila",
+            "description": "Moroccan flaky pastry filled with spiced shredded chicken, almonds, and a hint of cinnamon, dusted with powdered sugar."
+          },
+          {
+            "title": "Burger",
+            "description": "Juicy beef patty in a soft bun with fresh toppings and a special sauce."
+          },
+          {
+            "title": "Pan-Fried Ribeye Steak",
+            "description": "Tender ribeye steak pan-seared to a perfect crust with rich, savory flavors."
+          },
+          {
+            "title": "Moroccan Chicken",
+            "description": "Golden-roasted Moroccan chicken marinated with spices and slow-cooked to perfection."
+          }
+        ]
+      
+      ,
+  
+    "ABOUT": {
+      "header": "We love cooking!",
+      "content": "At RiadSaveur, we believe that great food goes beyond taste; it tells a story of dedication and creativity. From our chef's signature creations to our attentive service, every detail is curated to ensure your visit is nothing short of exceptional. Whether you're savoring our renowned Tikka Kebab or exploring our diverse menu inspired by global flavors, each dish is a celebration of flavor and innovation. Join us for a culinary journey where every bite leaves a lasting impression. Experience RiadSaveur—where every meal is a masterpiece."
+    },
+  
+    "MISSION": "At our restaurant, our mission is to create delicious and memorable dining experiences.",
+  
+    "CUSINES": [
+      {
+        "number": "01.",
+        "image": "../assets/italian.jpeg",
+        "title": "Italian",
+        "description": "Experience the flavors of Italy with our exquisite Italian cuisine, featuring traditional recipes and contemporary dishes."
+      },
+      {
+        "number": "02.",
+        "image": "../assets/japanese.jpeg",
+        "title": "Japanese",
+        "description": "Delight in the art of Japanese culinary excellence, offering a fusion of classic and modern flavors."
+      },
+      {
+        "number": "03.",
+        "image": "../assets/indian.jpeg",
+        "title": "Indian",
+        "description": "Indulge in the rich and diverse tastes of India, with a menu that celebrates the country's culinary heritage."
+      }
+    ],
+  
+    "REVIEW": [
+      {
+        "name": "Xaviour Fernando",
+        "profession": "Food Critic",
+        "content": "“As a seasoned food critic, my expectations are always high when stepping into a new dining establishment. RiadSaveur, with its unassuming exterior and elegantly designed interior, promised a unique culinary experience from the moment I walked in. And I must say, it delivered beyond my expectations.”"
+      }
+    ],
+  
+    "CONTACT": [
+      { "key": "address", "value": "Address: 123 Main Street, Paris, France, 345678" },
+      { "key": "phone", "value": "Phone: 123-456-7890" },
+      { "key": "email", "value": "Email: contact@restaurant.com" }
+    ]
+  }
+  

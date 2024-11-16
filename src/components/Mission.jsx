@@ -3,7 +3,9 @@ import missionImage from '../assets/mission.jpeg'
 import mission from '../assets/mission.mp4'
 import {MISSION} from '../constants/index'
 import {motion} from 'framer-motion'
+import { useTranslation } from 'react-i18next';
 export default function Mission() {
+  const { t } = useTranslation(); 
   return (
     <section id='mission'>
       <div className="container mx-auto  ">
@@ -51,7 +53,7 @@ export default function Mission() {
                   delay : 0.5
                 }}
                 className='absolute text-base text-center text-wrap sm:text-base md:text-2xl lg:text-3xl  p-5 max-w-[780px]  '>
-                    {MISSION}</motion.p>
+                    {t('MISSION')}</motion.p>
             </div>
       </div>
     </section>
