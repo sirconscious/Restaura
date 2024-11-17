@@ -25,10 +25,15 @@ function Login() {
         console.log("Response data:", response.data);
         if (response.data && response.data.status === "success") {
           setMessage("Success: " + response.data.message);
+          console.log(response.data.username)
+          if (username==="admin"){
+         navigate("/Dashboard")
+          }
+          else{
           // Redirect to another page after successful login
           navigate("/Reservations"); // Example of navigating to a dashboard page after login
           localStorage.setItem('userInfo', JSON.stringify({username: username, password: password , remember: remember}));
-          console.log(localStorage.getItem('userInfo'));
+          console.log(localStorage.getItem('userInfo'));}
         } else {
           setMessage("Error: " + response.data.message);
         }

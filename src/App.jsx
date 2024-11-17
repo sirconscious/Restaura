@@ -2,6 +2,7 @@ import React from 'react'
 import HomePage from './pages/HomePage'
 import NavBar from './components/NavBar'
 import Login from './pages/Login'
+import Layout from './pages/Dashboard'
 import SignUp from './pages/SignUp'
 import {BrowserRouter , Routes, Route , Link} from 'react-router-dom'
 import Reservations from './pages/Reservations'
@@ -15,7 +16,11 @@ export default function App() {
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/Reservations' element={<Reservations/>}/>
+      
+        
+
       </Route>
+      <Route path='/Dashboard' element={<Layout/>}/>
     </Routes>
     </BrowserRouter>
     </main>
