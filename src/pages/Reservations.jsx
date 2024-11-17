@@ -70,10 +70,14 @@ function Reservations() {
         
     };
     function handlereserve() {
+        if (selectedTable === null) {
+            setError("Please select a table.");
+            return;
+        }else {
         const userInfo = JSON.parse(localStorage.getItem('userInfo'));
         localStorage.setItem("reserve_info", JSON.stringify({ guests: count,date: date,
              time: time, table_id: selectedTable, username: userInfo["username"] }));
-        setShowMeals(true);
+        setShowMeals(true);}
         // let fdata = new FormData();
         // const url = "http://localhost/riadapis/index.php?action=reserve";
         // const userInfo = JSON.parse(localStorage.getItem('userInfo'));
@@ -167,7 +171,7 @@ function Reservations() {
                                     onClick={handlereserve}
                                     className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4 w-full"
                                 >
-                                    Reserve
+                                    Select Meals
                                 </button>
                             </>
                         ) : (
