@@ -1,28 +1,62 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 
-export default function MealCard({ meal, imgSrc , handleAddToCart }) {
-    const [quantity, setQuantity] = useState(1);
-    const handleQuantityChange = (event) => {
-      setQuantity(event.target.value);
-    }
+export default function MealCard({ meal, imgSrc, handleAddToCart }) {
+  const [quantity, setQuantity] = useState(1);
+
+  const handleQuantityChange = (event) => {
+    setQuantity(event.target.value);
+  };
+
   return (
-    <div className="w-full bg-slate-100 rounded-2xl  shadow-lg">
-      {/* Image */}
-      <img
-        src={imgSrc}
-        alt={meal.name}
-        className="rounded-t-lg object-cover w-full h-40"
-      />
+    <div className="w-full bg-gradient-to-br bg-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+      {/* Image Section */}
+      <div className="relative">
+        <img
+          src={imgSrc}
+          alt={meal.name}
+          className="rounded-t-xl object-cover w-full h-48"
+        />
+        <div className="absolute bottom-2 left-2 bg-black bg-opacity-50 px-2 py-1 rounded text-sm text-white">
+          <span className="font-semibold ">{meal.preparation_time}</span> mins
+        </div>
+      </div>
 
       {/* Meal Info */}
-      <div className="p-4">
-        <h2 className="text-2xl font-bold mb-2">{meal.name}</h2>
+      <div className="p-5 flex flex-col">
+        <h2 className="text-xl font-semibold mb-2">{meal.name}</h2>
         <p className="text-sm text-gray-600 mb-4">{meal.description}</p>
-        <p className="text-lg font-semibold text-green-700">Price: {meal.price} MAD</p>
-        <p className="text-sm text-gray-500">Prep Time: {meal.preparation_time}</p>
-        <label htmlFor="quantite">Quantite: </label>
-        <input type="number" max={5} min={1} defaultValue={1} onChange={handleQuantityChange} name="quantite"/> <br />
-        <button className="p-2 bg-blue-500 text-white rounded-2xl" onClick={()=>handleAddToCart({...meal , qt : quantity})}>Add to cart</button>
+        <p className="text-lg font-bold text-black">
+          Price: {meal.price} MAD
+        </p>
+
+        {/* Quantity Selector */}
+        <div className="mt-3 flex items-center ">
+          <label
+            htmlFor="quantity"
+            className="block text-sm font-medium mb-1"
+          >
+            Quantity:
+          </label>
+          <input
+            type="number"
+            max={5}
+            min={1}
+            defaultValue={1}
+            onChange={handleQuantityChange}
+            name="quantity"
+            className="w-24 rounded ml-7 bg-gray-200 text-black px-2 py-1 focus:outline-none focus:ring focus:ring-black"
+          />
+        </div>
+
+
+          <button
+            className="w-40 py-2 text-black  border  hover:bg-neutral-900  hover:text-white
+         focus:outline-none   text-xl px-5  text-center  border-neutral-900 mx-auto  mt-5  font-semibold rounded-lg transition-all duration-200"
+            onClick={() => handleAddToCart({ ...meal, qt: quantity })}
+          >
+            Add to Cart
+          </button>
+        
       </div>
     </div>
   );

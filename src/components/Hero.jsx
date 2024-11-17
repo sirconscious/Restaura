@@ -132,7 +132,7 @@ export default function Hero() {
         </div>
 
         {/* Weather data on the bottom right */}
-        <div className="absolute bottom-10 right-5 p-6 bg-black bg-opacity-30 rounded-lg shadow-xl text-white flex items-center space-x-4 hidden sm:block">
+        <div className="absolute bottom-32 right-5 p-6 bg-black bg-opacity-30 rounded-lg shadow-xl text-white lg:flex items-center space-x-4 hidden sm:block">
           {error ? (
             <p className="text-red-500 font-semibold">{error}</p>
           ) : weatherData ? (
