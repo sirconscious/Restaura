@@ -121,14 +121,15 @@ export default function Hero() {
               <FaMapPin className="mr-2" /> Marrakech
             </p>
           </div>
+          <Link to="/SignUp">
           <button
             type="button"
             className="text-white  border  hover:bg-white hover:text-neutral-900 
-         focus:outline-none  font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2 border-white hover:border-neutral-900 hover:dark:bg-neutral-300 flex lg:hidden justify-center items-center "
+         focus:outline-none  font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2 border-white hover:border-neutral-900 hover:dark:bg-neutral-300 flex justify-center items-center "
           >
             {" "}
             <span className="mr-3">Reservation</span> <FaArrowRight />{" "}
-          </button>
+          </button></Link>
         </div>
 
         {/* Weather data on the bottom right */}
