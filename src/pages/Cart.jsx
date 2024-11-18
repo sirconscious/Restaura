@@ -1,9 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import { TbX } from "react-icons/tb";
+import {useNavigate  } from 'react-router-dom';
 export default function Cart({ orderdMeals, handleRemoveFromCart, handleClearCart }) {
     console.log(orderdMeals);
     console.log(localStorage.getItem('reserve_info'));
+    const navigate = useNavigate();
 
     const handleAddReservation = () => {
         const reserve_info = JSON.parse(localStorage.getItem('reserve_info'));
@@ -26,6 +28,7 @@ export default function Cart({ orderdMeals, handleRemoveFromCart, handleClearCar
                 console.log(response.data);
                 if (response.data.status === "success") {
                     console.log(response);
+                    navigate(`/Payment?total=${orderdMeals.reduce((acc, meal) => acc + meal.price * meal.qt, 0)}`);
                 }
             })
             .catch((error) => {

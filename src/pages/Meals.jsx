@@ -14,6 +14,7 @@ import dish010 from "../assets/dish010.jpeg";
 import Cart from "./Cart";
 import PreparationTime from "./PreparationTime";
 import { TbX } from "react-icons/tb";
+import {useNavigate} from 'react-router-dom';
 
 export default function Meals() {
   const [meals, setMeals] = useState([]);
@@ -23,7 +24,7 @@ export default function Meals() {
   const [validPreparationTime, setValidPreparationTime] = useState(true);
   const [invalidMeal, setInvalidMeal] = useState({});
   const reserveInfo = JSON.parse(localStorage.getItem("reserve_info"));
-
+  
   const mealImages = [
     dish01,
     dish02,
@@ -36,8 +37,8 @@ export default function Meals() {
     dish09,
     dish010,
   ];
-
-  const convertPreparationTimeToMinutes = (preparationTime) => {
+  
+  const Prep_timeToMinutes = (preparationTime) => {
     if (!preparationTime) return 0;
     const parts = preparationTime.split(" ");
     let hours = 0;
@@ -55,7 +56,7 @@ export default function Meals() {
   const handleAddToCart = (meal) => {
     const preparationTime = meal.preparation_time || "0 m";
     const currentTime = new Date();
-    const preparationTimeInMinutes = convertPreparationTimeToMinutes(preparationTime);
+    const preparationTimeInMinutes = Prep_timeToMinutes(preparationTime);
 
     const reservationDateTime = new Date(`${reserveInfo.date}T${reserveInfo.time}`);
     if (reservationDateTime - currentTime < preparationTimeInMinutes * 60 * 1000) {

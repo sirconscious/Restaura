@@ -121,6 +121,7 @@ export default function Hero() {
               <FaMapPin className="mr-2" /> Marrakech
             </p>
           </div>
+          <Link to="/SignUp">
           <button
             type="button"
             className="text-white  border  hover:bg-white hover:text-neutral-900 
@@ -128,7 +129,7 @@ export default function Hero() {
           >
             {" "}
             <span className="mr-3">Reservation</span> <FaArrowRight />{" "}
-          </button>
+          </button></Link>
         </div>
 
         {/* Weather data on the bottom right */}

@@ -8,7 +8,7 @@ export default function MealCard({ meal, imgSrc, handleAddToCart }) {
   };
 
   return (
-    <div className="w-full bg-gradient-to-br bg-white rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+    <div className="w-full bg-gradient-to-br bg-zinc-200 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
       {/* Image Section */}
       <div className="relative">
         <img
