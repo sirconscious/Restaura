@@ -7,35 +7,8 @@ export default function Cart({ orderdMeals, handleRemoveFromCart, handleClearCar
     console.log(localStorage.getItem('reserve_info'));
     const navigate = useNavigate();
 
-    const handleAddReservation = () => {
-        const reserve_info = JSON.parse(localStorage.getItem('reserve_info'));
-        const url = "http://localhost/riadapis/index.php?action=reserve";
-        let fdata = new FormData();
-        fdata.append('guests', reserve_info.guests);
-        fdata.append('date', reserve_info.date);
-        fdata.append('time', reserve_info.time);
-        fdata.append('username', reserve_info.username);
-        fdata.append('table_id', reserve_info.table_id);
-        fdata.append("total_price", orderdMeals.reduce((acc, meal) => acc + meal.price * meal.qt, 0));
-        fdata.append('meals', JSON.stringify(orderdMeals));
-
-        axios.post(url, fdata, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        })
-            .then((response) => {
-                console.log(response.data);
-                if (response.data.status === "success") {
-                    console.log(response);
-                    navigate(`/Payment?total=${orderdMeals.reduce((acc, meal) => acc + meal.price * meal.qt, 0)}`);
-                }
-            })
-            .catch((error) => {
-                console.error("Error in request:", error);
-            });
-    }
-
+    
+// navigate(`/Payment?total=${orderdMeals.reduce((acc, meal) => acc + meal.price * meal.qt, 0)}`);
     return (
         <div className="z-30 bg-white bg-opacity-95 p-6 sm:p-8 rounded-lg shadow-lg fixed left-1/2 transform -translate-x-1/2 top-20 mt-10 w-full sm:w-3/4 lg:w-1/2">
             <div className="overflow-y-auto max-h-80">
@@ -73,8 +46,7 @@ export default function Cart({ orderdMeals, handleRemoveFromCart, handleClearCar
                     </button>
                     <button
                         className="bg-green-700 text-white rounded-lg py-2 px-4 hover:bg-green-800 transition-all duration-200"
-                        onClick={handleAddReservation}
-                    >
+                        onClick={() => navigate(`/Payment?total=${orderdMeals.reduce((acc, meal) => acc + meal.price * meal.qt, 0)}&orderdMeals=${JSON.stringify(orderdMeals)}`)}                    >
                         Reserve
                     </button>
                 </div>

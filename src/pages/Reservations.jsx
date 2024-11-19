@@ -41,7 +41,7 @@ function Reservations() {
         }
 
         const url = "http://localhost/riadapis/index.php?action=findTables";
-       
+
         if (selectedTable !== null) {
             fdata.append('table_id', selectedTable);
         }
@@ -51,33 +51,36 @@ function Reservations() {
                 'Content-Type': 'multipart/form-data'
             }
         })
-        .then((response) => {
-            console.log(response.data); // Check the structure of the response
-            if (response.data.status === "success" ) {
-                console.log(response);
-                setTables(response.data.tables); // Populate tables with the available data
-                setError("");
-                setBackToForm(true);
-            } else {
-                setTables([]);
-                setError(response.data.message || "No available tables found.");
-            }
-        })
-        .catch((error) => {
-            console.error("Error in request:", error);
-            setError("Failed to make the reservation. Please try again.");
-        });
-        
+            .then((response) => {
+                console.log(response.data); // Check the structure of the response
+                if (response.data.status === "success") {
+                    console.log(response);
+                    setTables(response.data.tables); // Populate tables with the available data
+                    setError("");
+                    setBackToForm(true);
+                } else {
+                    setTables([]);
+                    setError(response.data.message || "No available tables found.");
+                }
+            })
+            .catch((error) => {
+                console.error("Error in request:", error);
+                setError("Failed to make the reservation. Please try again.");
+            });
+
     };
     function handlereserve() {
         if (selectedTable === null) {
             setError("Please select a table.");
             return;
-        }else {
-        const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-        localStorage.setItem("reserve_info", JSON.stringify({ guests: count,date: date,
-             time: time, table_id: selectedTable, username: userInfo["username"] }));
-        setShowMeals(true);}
+        } else {
+            const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+            localStorage.setItem("reserve_info", JSON.stringify({
+                guests: count, date: date,
+                time: time, table_id: selectedTable, username: userInfo["username"]
+            }));
+            setShowMeals(true);
+        }
         // let fdata = new FormData();
         // const url = "http://localhost/riadapis/index.php?action=reserve";
         // const userInfo = JSON.parse(localStorage.getItem('userInfo'));
@@ -120,82 +123,98 @@ function Reservations() {
             <Meals />
         ) : (
             <div className="w-full min-h-screen flex items-center justify-center bg-[url('/src/assets/Riadsss.png')] bg-cover bg-center">
-                <div className="w-full w-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 p-6">
-                    <div className="flex flex-col justify-center items-center text-center bg-white bg-opacity-50 p-6 rounded-lg shadow-xl max-w-md w-full mx-auto">
+                <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
+                    {/* Reservation Form */}
+                    <div className="flex flex-col justify-center items-center text-center bg-white bg-opacity-80 p-8 rounded-lg shadow-xl max-w-md mx-auto">
                         {backToForm ? (
                             <>
-                                <button onClick={() => setBackToForm(false)} className="mb-4">
-                                    <IoArrowBackCircleOutline size={50} />
+                                <button
+                                    onClick={() => setBackToForm(false)}
+                                    className="mb-6 text-gray-700 hover:text-gray-900 flex items-center gap-2"
+                                    aria-label="Go back to form"
+                                >
+                                    <IoArrowBackCircleOutline size={40} className="transition-transform hover:scale-110" />
+                                    <span className="font-medium text-base">Back to Form</span>
                                 </button>
                                 {tables && tables.length > 0 ? (
-                                    <ul className="divide-y divide-gray-200 w-full max-h-96 overflow-y-auto">
-                                        {tables.filter((table) => table.reserved === 0).map((table) => {
-                                            const tableDetails = getTableInfo(table.table_id);
-                                            return (
-                                                <li key={table.table_id} className="py-4 flex items-center justify-between">
-                                                    <div className="flex items-center space-x-4">
-                                                        <img
-                                                            src={table1}
-                                                            alt={`Table ${table.table_id}`}
-                                                            className="w-20 h-20 rounded-lg object-cover"
-                                                        />
-                                                        <div>
-                                                            <span className="text-lg font-bold">Table {table.table_id}</span>
-                                                            {tableDetails && (
-                                                                <div className="text-left">
-                                                                    <p className="text-base text-black">{tableDetails.description}</p>
-                                                                    <p className="text-sm text-gray-800">Max Capacity: {tableDetails.max_capacity}</p>
-                                                                    <ul className="text-sm text-gray-800">
-                                                                        {tableDetails.features.map((feature, index) => (
-                                                                            <li key={index}>• {feature}</li>
-                                                                        ))}
-                                                                    </ul>
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                                    <button
-                                                        onClick={() => handleTableSelection(table.table_id)}
-                                                        className={`bg-${selectedTable === table.table_id ? 'green' : 'blue'}-500 hover:bg-${selectedTable === table.table_id ? 'green' : 'blue'}-700 text-slate-800 font-bold py-2 px-4 rounded`}
+                                    <div className="grid grid-cols-1 gap-6 w-full max-h-96 overflow-y-auto">
+                                        {tables
+                                            .filter((table) => table.reserved === 0)
+                                            .map((table) => {
+                                                const tableDetails = getTableInfo(table.table_id);
+                                                return (
+                                                    <div
+                                                        key={table.table_id}
+                                                        className="bg-gray-100 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex justify-between items-center"
                                                     >
-                                                        {selectedTable === table.table_id ? "Selected" : "Select"}
-                                                    </button>
-                                                </li>
-                                            );
-                                        })}
-                                    </ul>
+                                                        <div className="flex items-center space-x-4">
+                                                            <img
+                                                                src={table1}
+                                                                alt={`Table ${table.table_id}`}
+                                                                className="w-20 h-20 rounded-lg object-cover"
+                                                            />
+                                                            <div className="text-left">
+                                                                <h3 className="text-lg font-semibold text-gray-900">
+                                                                    Table {table.table_id}
+                                                                </h3>
+                                                                {tableDetails && (
+                                                                    <>
+                                                                        <p className="text-gray-700">{tableDetails.description}</p>
+                                                                        <p className="text-sm text-gray-600">
+                                                                            Max Capacity: {tableDetails.max_capacity}
+                                                                        </p>
+                                                                        <ul className="text-sm text-gray-600">
+                                                                            {tableDetails.features.map((feature, index) => (
+                                                                                <li key={index}>• {feature}</li>
+                                                                            ))}
+                                                                        </ul>
+                                                                    </>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                        <button
+                                                            onClick={() => handleTableSelection(table.table_id)}
+                                                            className={`${selectedTable === table.table_id ? 'bg-green-500' : 'bg-blue-500'
+                                                                } text-white font-medium py-2 px-4 rounded hover:opacity-90`}
+                                                        >
+                                                            {selectedTable === table.table_id ? 'Selected' : 'Select'}
+                                                        </button>
+                                                    </div>
+                                                );
+                                            })}
+                                    </div>
                                 ) : (
-                                    <div className="text-red-500 text-sm mt-2">{error}</div>
+                                    <div className="text-red-500 text-sm mt-2">
+                                        {error || 'No tables available.'}
+                                    </div>
                                 )}
                                 <button
                                     onClick={handlereserve}
-                                    className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4 w-full"
+                                    className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-4 rounded w-full mt-4"
                                 >
-                                    Select Meals
+                                    Proceed to Meals
                                 </button>
                             </>
                         ) : (
                             <>
-                                <h1 className="text-3xl md:text-4xl font-bold text-slate-700 mb-4 md:mb-8">Reserve a Table</h1>
-                                <p className="font-semibold text-lg md:text-xl mb-4 md:mb-6">Make your reservation now</p>
-                                <form onSubmit={handleSubmit} className="space-y-4 w-full">
+                                <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Reserve a Table</h1>
+                                <form onSubmit={handleSubmit} className="space-y-6 w-full">
                                     <input
                                         type="date"
                                         name="date"
                                         id="date"
                                         value={date}
                                         onChange={(e) => setDate(e.target.value)}
-                                        className="border-2 border-neutral-950 p-3 w-full rounded-md"
+                                        className="border border-gray-400 p-3 w-full rounded-md"
                                     />
                                     <input
                                         type="time"
+                                        name="time"
                                         value={time}
                                         onChange={(e) => setTime(e.target.value)}
-                                        className="border-2 border-neutral-950 p-3 w-full rounded-md"
+                                        className="border border-gray-400 p-3 w-full rounded-md"
                                     />
-                                    {error && (
-                                        <div className="text-red-500 text-sm mt-2">{error}</div>
-                                    )}
+                                    {error && <p className="text-red-500 text-sm">{error}</p>}
                                     <div className="flex items-center mt-4">
                                         <button
                                             type="button"
@@ -209,7 +228,7 @@ function Reservations() {
                                                 type="number"
                                                 value={count}
                                                 onChange={handleChange}
-                                                className="text-center px-3 py-3 border-t-2 border-b-2 border-neutral-950 lg:w-72 md:w-20"
+                                                className="text-center px-3 py-3 border-t-2 border-b-2 border-neutral-950 lg:w-72 md:w-60 w-48 focus:outline-none"
                                                 min="1"
                                                 max="15"
                                             />
@@ -223,39 +242,36 @@ function Reservations() {
                                             +
                                         </button>
                                     </div>
-                                    <input
+                                    <button
                                         type="submit"
-                                        value="Find a Table"
-                                        className="text-slate-50 bg-slate-700 w-full mt-4 md:mt-6 py-3 rounded-md font-semibold hover:bg-slate-800"
-                                    />
+                                        className="bg-blue-600 hover:bg-blue-700 text-white py-3 w-full rounded-md font-medium"
+                                    >
+                                        Find a Table
+                                    </button>
                                 </form>
                             </>
                         )}
                     </div>
-    
-                    <div className="bg-white bg-opacity-90 p-6 md:p-8 rounded-lg shadow-2xl w-full mx-auto">
-                        <div className="w-full bg-slate-200 p-6 md:p-8 flex flex-col items-center">
-                            <h2 className="text-3xl md:text-5xl font-semibold mb-4">Our Location</h2>
-                            <p className="text-lg md:text-xl">123 Restaura Street</p>
-                            <p className="text-lg md:text-xl">City, Country</p>
-                            <p className="text-lg md:text-xl mb-4">Phone: (123) 456-7890</p>
-                            <div className="mt-6 mb-6 w-full h-64 md:h-80">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?..."
-                                    width="100%"
-                                    height="100%"
-                                    allowFullScreen=""
-                                    loading="lazy"
-                                    className="rounded-md"
-                                ></iframe>
-                            </div>
-                        </div>
+
+                    {/* Location Section */}
+                    <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg">
+                        <h2 className="text-3xl font-semibold text-gray-800 mb-6 text-center">Our Location</h2>
+                        <p className="text-lg text-gray-700 text-center mb-4">123 Restaura Street, City, Country</p>
+                        <p className="text-lg text-gray-700 text-center mb-6">Phone: (123) 456-7890</p>
+                        <iframe
+                            src="https://www.google.com/maps/embed?..."
+                            className="w-full h-64 rounded-md"
+                            allowFullScreen=""
+                            loading="lazy"
+                        ></iframe>
                     </div>
                 </div>
             </div>
+
+
         )
     );
-}    
+}
 export default Reservations;
 
 

@@ -6,7 +6,6 @@ import SignUp from './pages/SignUp'
 import {BrowserRouter , Routes, Route , Link} from 'react-router-dom'
 import Reservations from './pages/Reservations'
 import Payment from './pages/Payment'
-import Layout from './pages/Dashboard'
 export default function App() {
   return (
     <main className="overflow-y-hidden ">
@@ -18,9 +17,7 @@ export default function App() {
         <Route path='/Login' element={<Login/>}/>
         <Route path='/Reservations' element={<Reservations/>}/>
         <Route path='/Payment' element={<Payment/>}/>
-        
       </Route>
-      <Route path='/Dashboard' element={<Layout/>}/>
     </Routes>
     </BrowserRouter>
     </main>

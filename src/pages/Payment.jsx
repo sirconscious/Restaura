@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 import testCsv from '../constants/PaymentAcc.csv';
 import Papa from 'papaparse';
 export default function Payment() {
@@ -7,7 +8,7 @@ export default function Payment() {
     const params = new URLSearchParams(location.search);
     const total_price = params.get('total');
     const finel_price = total_price - 50;
-
+    const orderdMeals = JSON.parse(params.get('orderdMeals'));
     const [fullName, setFullName] = useState('');
     const [cardNumber, setCardNumber] = useState('');
     const [cardExpiration, setCardExpiration] = useState('');
@@ -47,9 +48,37 @@ export default function Payment() {
             });
 
             if (isValid) {
-                console.log('Payment successful!');
-                alert('Payment successful!');
-                console.log(data);
+                
+                const reserve_info = JSON.parse(localStorage.getItem('reserve_info'));
+                const url = "http://localhost/riadapis/index.php?action=reserve";
+                let fdata = new FormData();
+                fdata.append('guests', reserve_info.guests);
+                fdata.append('date', reserve_info.date);
+                fdata.append('time', reserve_info.time);
+                fdata.append('username', reserve_info.username);
+                fdata.append('table_id', reserve_info.table_id);
+                fdata.append("total_price", orderdMeals.reduce((acc, meal) => acc + meal.price * meal.qt, 0));
+                fdata.append('meals', JSON.stringify(orderdMeals));
+
+                axios.post(url, fdata, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                })
+                    .then((response) => {
+                        console.log(response.data);
+                        if (response.data.status === "success") {
+                            console.log(response);
+                            console.log('Payment successful!');
+                            alert('Payment successful!');
+                            console.log(data);
+            
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error in request:", error);
+                    });
+
             } else {
                 console.log('Invalid payment information.');
                 alert('Invalid payment information.');
