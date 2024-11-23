@@ -14,12 +14,13 @@ export default function App() {
     <Routes>
       <Route path='/' element={<NavBar className="text-neutral-200"/>}>
         <Route index element={<HomePage/>}/>
-        <Route path='/signup' element={<SignUp/>}/>
+       
+        
+      </Route>
+      <Route path='/signup' element={<SignUp/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/Reservations' element={<Reservations/>}/>
         <Route path='/Payment' element={<Payment/>}/>
-        
-      </Route>
       <Route path='/Dashboard' element={<Layout/>}/>
     </Routes>
     </BrowserRouter>

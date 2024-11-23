@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import testCsv from '../constants/PaymentAcc.csv';
+import testCsv from '../assets/PaymentAcc.csv';
 import Papa from 'papaparse';
 export default function Payment() {
     const location = useLocation();
