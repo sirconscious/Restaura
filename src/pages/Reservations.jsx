@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { tablesInfo } from '../constants/index';
 import { IoArrowBackCircleOutline } from "react-icons/io5";
 import table1 from '../assets/table1.png';
 import Meals from './Meals';
+
 function Reservations() {
     const [count, setCount] = useState(1);
     const [tables, setTables] = useState(null);
@@ -24,6 +25,7 @@ function Reservations() {
         const value = parseInt(e.target.value, 10);
         setCount(isNaN(value) ? 1 : Math.min(15, Math.max(1, value)));
     };
+
     const handleTableSelection = (table_id) => {
         setSelectedTable(table_id);
     };
@@ -42,19 +44,14 @@ function Reservations() {
 
         const url = "http://localhost/riadapis/index.php?action=findTables";
 
-        if (selectedTable !== null) {
-            fdata.append('table_id', selectedTable);
-        }
-
         axios.get(url, {
             headers: {
-                'Content-Type': 'multipart/form-data'
+                'Content-Type': 'application/json'
             }
         })
             .then((response) => {
                 console.log(response.data); // Check the structure of the response
                 if (response.data.status === "success") {
-                    console.log(response);
                     setTables(response.data.tables); // Populate tables with the available data
                     setError("");
                     setBackToForm(true);
@@ -67,53 +64,25 @@ function Reservations() {
                 console.error("Error in request:", error);
                 setError("Failed to make the reservation. Please try again.");
             });
-
     };
-    function handlereserve() {
+
+    const handlereserve = () => {
         if (selectedTable === null) {
             setError("Please select a table.");
             return;
         } else {
             const userInfo = JSON.parse(localStorage.getItem('userInfo'));
             localStorage.setItem("reserve_info", JSON.stringify({
-                guests: count, date: date,
-                time: time, table_id: selectedTable, username: userInfo["username"]
+                guests: count,
+                date: date,
+                time: time,
+                table_id: selectedTable,
+                username: userInfo["username"]
             }));
             setShowMeals(true);
         }
-        // let fdata = new FormData();
-        // const url = "http://localhost/riadapis/index.php?action=reserve";
-        // const userInfo = JSON.parse(localStorage.getItem('userInfo'));
-        // fdata.append('guests', count);
-        // fdata.append('date', date);
-        // fdata.append('time', time);
-        // fdata.append('username',userInfo.username); 
-        // if (selectedTable !== null) {
-        //     fdata.append('table_id', selectedTable);
-        // }
+    };
 
-        // axios.post(url, fdata, {
-        //     headers: {
-        //         'Content-Type': 'multipart/form-data'
-        //     }
-        // })
-        // .then((response) => {
-        //     console.log(response.data); // Check the structure of the response
-        //     if (response.data.status === "success" ) {
-        //         console.log(response);
-        //         setTables(response.data.tables); // Populate tables with the available data
-        //         setError("");
-        //         setBackToForm(true);
-        //     } else {
-        //         setTables([]);
-        //         setError(response.data.message || "No available tables found.");
-        //     }
-        // })
-        // .catch((error) => {
-        //     console.error("Error in request:", error);
-        //     setError("Failed to make the reservation. Please try again.");
-        // });
-    }
     const getTableInfo = (tableId) => {
         return tablesInfo.find(table => table.table_id === tableId);
     };
@@ -256,52 +225,21 @@ function Reservations() {
                     {/* Location Section */}
                     <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg">
                         <h2 className="text-3xl font-semibold text-gray-800 mb-6 text-center">Our Location</h2>
-                        <p className="text-lg text-gray-700 text-center mb-4">123 Restaura Street, City, Country</p>
-                        <p className="text-lg text-gray-700 text-center mb-6">Phone: (123) 456-7890</p>
+                        <p className="text-lg text-gray-700 text-center mb-4">
+                            Jemaa el-Fnaa, Marrakech, Morocco
+                        </p>
                         <iframe
-                            src="https://www.google.com/maps/embed?..."
-                            className="w-full h-64 rounded-md"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48330.036712037064!2d-8.049826715488603!3d31.624609850000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafe22f61184f93%3A0x54b46b4e90b476ff!2sJemaa%20el-Fnaa!5e0!3m2!1sen!2sma!4v1696798154425!5m2!1sen!2sma"
+                            className="w-full h-96 rounded-md"
                             allowFullScreen=""
                             loading="lazy"
+                            title="Jemaa el-Fnaa Map"
                         ></iframe>
                     </div>
                 </div>
             </div>
-
-
         )
     );
 }
+
 export default Reservations;
-
-
-// let fdata = new FormData();
-//         fdata.append('guests', count);
-//         fdata.append('date', date);
-//         fdata.append('time', time);
-//         fdata.append('username', "ilyas");
-//         if (selectedTable !== null) {
-//             fdata.append('table_id', selectedTable);
-//         }
-
-//         axios.post(url, fdata, {
-//             headers: {
-//                 'Content-Type': 'multipart/form-data'
-//             }
-//         })
-//         .then((response) => {
-//             console.log(response.data); // Check the structure of the response
-//             if (response.data.status === "success" ) {
-//                 console.log(response);
-//                 setTables(response.data.tables); // Populate tables with the available data
-//                 setError("");
-//                 setBackToForm(true);
-//             } else {
-//                 setTables([]);
-//                 setError(response.data.message || "No available tables found.");
-//             }
-//         })
-//         .catch((error) => {
-//             console.error("Error in request:", error);
-//             setError("Failed to make the reservation. Please try again.");
-//         });
