@@ -160,9 +160,9 @@ function Reservations() {
                                                                 {tableDetails && (
                                                                     <>
                                                                         <p className="text-gray-700">{tableDetails.description}</p>
-                                                                        <p className="text-sm text-gray-600">
+                                                                        {/* <p className="text-sm text-gray-600">
                                                                             Max Capacity: {tableDetails.max_capacity}
-                                                                        </p>
+                                                                        </p> */}
                                                                         <ul className="text-sm text-gray-600">
                                                                             {tableDetails.features.map((feature, index) => (
                                                                                 <li key={index}>• {feature}</li>

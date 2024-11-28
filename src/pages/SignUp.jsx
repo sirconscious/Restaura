@@ -89,6 +89,7 @@ function SignUp() {
               onChange={(e) => setUsername(e.target.value)} 
               className="w-full px-4 py-3 border-2 rounded-md"
               placeholder="Enter your username"
+              required
             />
             <label className="block text-slate-700">First Name:</label>
             <input 
@@ -97,6 +98,7 @@ function SignUp() {
               onChange={(e) => setFirstName(e.target.value)} 
               className="w-full px-4 py-3 border-2 rounded-md"
               placeholder="Enter your first name"
+              required
             />
             <label className="block text-slate-700">Password:</label>
             <input 
@@ -105,6 +107,7 @@ function SignUp() {
               onChange={(e) => setPassword(e.target.value)} 
               className="w-full px-4 py-3 border-2 rounded-md"
               placeholder="Enter your password"
+              required
             />
           </div>
           <div className="space-y-4">
@@ -115,6 +118,7 @@ function SignUp() {
               onChange={(e) => setEmail(e.target.value)} 
               className="w-full px-4 py-3 border-2 rounded-md"
               placeholder="Enter your email"
+              required
             />
             <label className="block text-slate-700">Last Name:</label>
             <input 
@@ -123,6 +127,7 @@ function SignUp() {
               onChange={(e) => setLastName(e.target.value)} 
               className="w-full px-4 py-3 border-2 rounded-md"
               placeholder="Enter your last name"
+              required
             />
             <label className="block text-slate-700">Confirm Password:</label>
             <input 
@@ -131,6 +136,7 @@ function SignUp() {
               onChange={(e) => setConfirmPassword(e.target.value)} 
               className="w-full px-4 py-3 border-2 rounded-md"
               placeholder="Confirm your password"
+              required
             />
             <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md mt-6">Sign Up</button>
           </div>
