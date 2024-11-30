@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MealCard from "./MealCard";
 import { FaCartShopping } from "react-icons/fa6";
-import { mealImages } from '../constants/index';
+import { mealImages } from '../constants/index'; // Make sure dish images are imported correctly
 import Cart from "./Cart";
 import PreparationTime from "./PreparationTime";
 import { TbX } from "react-icons/tb";
@@ -14,7 +14,7 @@ export default function Meals() {
   const [filter, setFilter] = useState("All");
   const [validPreparationTime, setValidPreparationTime] = useState(true);
   const [invalidMeal, setInvalidMeal] = useState({});
-  const [showAllCategories, setShowAllCategories] = useState(false); // State to toggle category visibility
+  const [showAllCategories, setShowAllCategories] = useState(false);
   const reserveInfo = JSON.parse(localStorage.getItem("reserve_info"));
 
   const Prep_timeToMinutes = (preparationTime) => {
@@ -74,7 +74,13 @@ export default function Meals() {
   }, []);
 
   const categories = Array.from(new Set(meals.map((meal) => meal.category)));
-  const visibleCategories = showAllCategories ? categories : categories.slice(0, 10);
+  const visibleCategories = showAllCategories ? categories : categories.slice(0, 8);
+  const filterDrinks = meals.filter(((meal) => meal.category === "international"));
+  // Function to get images based on selected category
+  const getCategoryImages = (category) => {
+    const categoryData = mealImages.find((item) => item.category === category);
+    return categoryData ? categoryData.images : [];
+  };
 
   return (
     <div className="w-full bg-neutral-50 p-14 pt-28">
@@ -117,7 +123,7 @@ export default function Meals() {
             <MealCard
               key={meal.meal_id}
               meal={meal}
-              imgSrc={mealImages[index]} // Loop images
+              imgSrc={getCategoryImages(filter)[index]} // Get corresponding image based on category
               handleAddToCart={handleAddToCart}
             />
           ))}
@@ -136,6 +142,8 @@ export default function Meals() {
           orderdMeals={orderdMeals}
           handleRemoveFromCart={handleRemoveFromCart}
           handleClearCart={handleClearCart}
+          drinks = {filterDrinks}
+          handleAddToCart={handleAddToCart}
         />
       )}
 

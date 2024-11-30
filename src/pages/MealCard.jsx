@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function MealCard({ meal, imgSrc, handleAddToCart }) {
+export default function MealCard({ meal, imgSrc, handleAddToCart,sugg }) {
   const [quantity, setQuantity] = useState(1);
 
   const handleQuantityChange = (event) => {
@@ -8,7 +8,7 @@ export default function MealCard({ meal, imgSrc, handleAddToCart }) {
   };
 
   return (
-    <div className="w-full bg-gradient-to-br bg-zinc-200 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+    <div className={` w-full bg-gradient-to-br bg-zinc-200 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300`}>
       {/* Image Section */}
       <div className="relative">
         <img
@@ -23,7 +23,7 @@ export default function MealCard({ meal, imgSrc, handleAddToCart }) {
 
       {/* Meal Info */}
       <div className="p-5 flex flex-col">
-        <h2 className="text-xl font-semibold mb-2">{meal.name}</h2>
+        <h2 className="text-xl font-semibold mb-2 text-black">{meal.name}</h2>
         <p className="text-sm text-gray-600 mb-4">{meal.description}</p>
         <p className="text-lg font-bold text-black">
           Price: {meal.price} MAD
@@ -33,7 +33,7 @@ export default function MealCard({ meal, imgSrc, handleAddToCart }) {
         <div className="mt-3 flex items-center ">
           <label
             htmlFor="quantity"
-            className="block text-sm font-medium mb-1"
+            className="block text-sm font-medium mb-1 text-black"
           >
             Quantity:
           </label>

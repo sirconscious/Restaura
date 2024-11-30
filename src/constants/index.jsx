@@ -10,7 +10,7 @@ import dish09 from "../assets/dish09.jpg";
 import dish010 from "../assets/dish010.jpg";
 import dish011 from "../assets/dish011.jpg";
 import dish012 from "../assets/dish012.jpg";
-import dish013 from "../assets/dish013.jpg";
+// import dish013 from "../assets/dish013.jpg";
 import dish014 from "../assets/dish014.jpg";
 import dish015 from "../assets/dish015.jpg";
 import dish016 from "../assets/dish016.jpg";
@@ -20,19 +20,19 @@ import dish018 from "../assets/dish018.jpg";
 // import dish020 from "../assets/dish020.jpg";
 // import dish021 from "../assets/dish021.jpg";
 // import dish022 from "../assets/dish022.jpg";
-import dish023 from "../assets/dish023.jpg";
-import dish024 from "../assets/dish024.jpg";
-import dish025 from "../assets/dish025.jpg";
+// import dish023 from "../assets/dish023.jpg";
+// import dish024 from "../assets/dish024.jpg";
+// import dish025 from "../assets/dish025.jpg";
 import dish026 from "../assets/dish026.jpg";
 import dish027 from "../assets/dish027.jpg";
-import dish028 from "../assets/dish028.jpg";
+// import dish028 from "../assets/dish028.jpg";
 import dish029 from "../assets/dish029.jpg";
 import dish030 from "../assets/dish030.jpg";
 import dish031 from "../assets/dish031.jpg";
 import dish032 from "../assets/dish032.jpg";
-import dish033 from "../assets/dish033.jpg";
-import dish034 from "../assets/dish034.jpg";
-import dish035 from "../assets/dish035.jpg";
+// import dish033 from "../assets/dish033.jpg";
+// import dish034 from "../assets/dish034.jpg";
+// import dish035 from "../assets/dish035.jpg";
 import dish036 from "../assets/dish036.jpg";
 import dish037 from "../assets/dish037.jpg";
 import dish038 from "../assets/dish038.jpg";
@@ -40,9 +40,9 @@ import dish039 from "../assets/dish039.jpg";
 import dish040 from "../assets/dish040.jpg";
 import dish041 from "../assets/dish041.jpg";
 import dish042 from "../assets/dish042.jpg";
-import dish043 from "../assets/dish043.jpg";
+// import dish043 from "../assets/dish043.jpg";
 import dish044 from "../assets/dish044.jpg";
-import dish045 from "../assets/dish045.jpg";
+// import dish045 from "../assets/dish045.jpg";
 import dish046 from "../assets/dish046.jpg";
 import dish047 from "../assets/dish047.jpg";
 import dish048 from "../assets/dish048.jpg";
@@ -158,74 +158,109 @@ export const DISHES = [
   }
 ];
 
+// export const mealImages = [
+//   dish01,
+//   dish02,
+//   dish03,
+//   dish04,
+//   dish05,
+//   dish06,
+//   dish07,
+//   dish08,
+//   dish09,
+//   dish010,
+//   dish011,
+//   dish012,
+//   // dish013,
+//   dish014,
+//   dish015,
+//   dish016,
+//   dish017, 
+//   dish018,
+//   // dish019,
+//   // dish020,
+//   // dish021,
+//   // dish022,
+//   // dish023,
+//   // dish024,
+//   // dish025,
+//   dish026,
+//   dish027,
+//   // dish028,
+//   dish029, 
+//   dish030, 
+//   dish031, 
+//   dish032, 
+//   // dish033,
+//   // dish034,
+//   // dish035,
+//   dish036, 
+//   dish037,
+//   dish038,
+//   dish039, 
+//   dish040, 
+//   dish041, 
+//   dish042, 
+//   // dish043,
+//   dish044,
+//   // dish045,
+//   dish046, 
+//   dish047,
+//   dish048,
+//   dish049,
+//   dish050,
+//   dish051,
+//   dish052,
+//   dish053,
+//   dish054,
+//   dish055,
+//   dish056,
+//   dish057,
+//   dish058,
+//   dish059,
+//   dish060,
+//   dish061,
+//   dish062,
+//   dish063,
+//   dish064,
+//   dish065,
+//   dish066,
+//   dish067,
+// ];
+
 export const mealImages = [
-  dish01,
-  dish02,
-  dish03,
-  dish04,
-  dish05,
-  dish06,
-  dish07,
-  dish08,
-  dish09,
-  dish010,
-  dish011,
-  dish012,
-  dish013,
-  dish014,
-  dish015,
-  dish016,
-  dish017,
-  dish018,
-  // dish019,
-  // dish020,
-  // dish021,
-  // dish022,
-  dish023,
-  dish024,
-  dish025,
-  dish026,
-  dish027,
-  dish028,
-  dish029,
-  dish030,
-  dish031,
-  dish032,
-  dish033,
-  dish034,
-  dish035,
-  dish036,
-  dish037,
-  dish038,
-  dish039,
-  dish040,
-  dish041,
-  dish042,
-  dish043,
-  dish044,
-  dish045,
-  dish046,
-  dish047,
-  dish048,
-  dish049,
-  dish050,
-  dish051,
-  dish052,
-  dish053,
-  dish054,
-  dish055,
-  dish056,
-  dish057,
-  dish058,
-  dish059,
-  dish060,
-  dish061,
-  dish062,
-  dish063,
-  dish064,
-  dish065,
-  dish066,
-  dish067,
+  {
+    category: "All",
+    images: [
+      dish01, dish02, dish03, dish04, dish05, dish06, dish07, 
+      dish08, dish09, dish010, dish011, dish012, dish014, dish015, 
+      dish016, dish017, dish018, dish026, dish027, dish029, dish030, 
+      dish031, dish032, dish036, dish037, dish038, dish039, dish040, 
+      dish041, dish042, dish044, dish046, dish047, dish048, dish049,
+      dish050, dish051, dish052, dish053, dish054, dish055, dish056,
+      dish057, dish058, dish059, dish060, dish061, dish062, dish063,
+      dish064, dish065, dish066, dish067
+    ]
+  },
+  { category: "Moroccan", images: [dish01, dish02, dish03, dish07, dish010, dish014, dish016, dish049] },
+  { category: "Thai", images: [dish015, dish018] },
+  { category: "American", images: [dish08, dish09] },
+  { category: "British", images: [dish031, dish039] },
+  { category: "Chinese", images: [dish036, dish041] },
+  { category: "French", images: [dish032, dish040] },
+  { category: "Indian", images: [dish017, dish038] },
+  { category: "Italian", images: [dish05, dish029, dish030, dish037, dish042] },
+  { category: "Japanese", images: [dish06, dish011, dish046, dish047] },
+  { category: "Mexican", images: [dish04, dish012, dish026] },
+  { category: "Middle Eastern", images: [dish027, dish044] },
+  {
+    category: "international",
+    images: [
+      dish048, dish050, dish051, dish052, dish053, dish054, dish055, dish056, 
+      dish057, dish058, dish059, dish060, dish061, dish062, dish063, dish064, 
+      dish065, dish066, dish067
+    ]
+  }
 ];
 
 // About section text
@@ -273,9 +308,9 @@ export const REVIEW = {
 
 // Contact information
 export const CONTACT = [
-  { key: "address", value: "Address: 123 Main Street, Paris, France, 345678" },
-      { key: "phone", value: "Phone: 123-456-7890" },
-      { key: "email", value: "Email: contact@restaurant.com" }
+  { key: "address", value: "Address: Ista Ntic Syba, Marrakech, Morocco" },
+  { key: "phone", value: "Phone: 123-456-7890" },
+  { key: "email", value: "Email: " }
 ];
 
 // Social Media Links
@@ -295,33 +330,33 @@ export const SOCIAL_MEDIA_LINKS = [
 ];
 
 export const tablesInfo = [{
-    "table_id": 1,
-    "description": "Cozy corner table near the window with a view.",
-    // "max_capacity": 4,
-    "features": ["Window view", "Comfortable seating", "Natural lighting"]
-  },
-  {
-    "table_id": 2,
-    "description": "Intimate two-person table by the fireplace.",
-    // "max_capacity": 2,
-    "features": ["Fireplace nearby", "Perfect for couples", "Warm lighting"]
-  },
-  {
-    "table_id": 3,
-    "description": "Large family table near the play area.",
-    // "max_capacity": 6,
-    "features": ["Family-friendly", "Near play area", "High chairs available"]
-  },
-  {
-    "table_id": 4,
-    "description": "Spacious table suitable for groups or celebrations.",
-    // "max_capacity": 8,
-    "features": ["Private area", "Ideal for gatherings", "Soundproof"]
-  },
-  {
-    "table_id": 5,
-    "description": "Quiet table in the library-themed area for study or work.",
-    // "max_capacity": 2,
-    "features": ["Quiet ambiance", "Ideal for work or study", "Good lighting"]
-  }
+  "table_id": 1,
+  "description": "Cozy corner table near the window with a view.",
+  // "max_capacity": 4,
+  "features": ["Window view", "Comfortable seating", "Natural lighting"]
+},
+{
+  "table_id": 2,
+  "description": "Intimate two-person table by the fireplace.",
+  // "max_capacity": 2,
+  "features": ["Fireplace nearby", "Perfect for couples", "Warm lighting"]
+},
+{
+  "table_id": 3,
+  "description": "Large family table near the play area.",
+  // "max_capacity": 6,
+  "features": ["Family-friendly", "Near play area", "High chairs available"]
+},
+{
+  "table_id": 4,
+  "description": "Spacious table suitable for groups or celebrations.",
+  // "max_capacity": 8,
+  "features": ["Private area", "Ideal for gatherings", "Soundproof"]
+},
+{
+  "table_id": 5,
+  "description": "Quiet table in the library-themed area for study or work.",
+  // "max_capacity": 2,
+  "features": ["Quiet ambiance", "Ideal for work or study", "Good lighting"]
+}
 ]

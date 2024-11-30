@@ -121,9 +121,9 @@
     ],
   
     "CONTACT": [
-      { "key": "address", "value": "Adresse: 123 Main Street, Paris, France, 345678" },
+      { "key": "address", "value": "Adresse: Ista Ntic Syba, Marrakech, Morocco" },
       { "key": "phone", "value": "Téléphone: 123-456-7890" },
-      { "key": "email", "value": "Email: contact@restaurant.com" }
+      { "key": "email", "value": "Email: Riadsaveurs@gmail.com" }
     ]
   }
   
