@@ -88,7 +88,8 @@ export default function Meals() {
       <div className="flex flex-wrap gap-3 mb-6 justify-center">
         <button
           onClick={() => setFilter("All")}
-          className={`px-4 py-2 text-sm md:text-base rounded-md ${filter === "All" ? "bg-gray-700 text-white" : "bg-gray-500 text-white hover:bg-gray-400"}`}
+          className={`px-4 py-2 text-sm md:text-base rounded-md ${filter === "All" ? "bg-red-600 text-white shadow-lg"
+            : "bg-gray-300 text-gray-800 hover:bg-red-500 hover:text-white"}`}
         >
           All
         </button>
@@ -96,7 +97,8 @@ export default function Meals() {
           <button
             key={category}
             onClick={() => setFilter(category)}
-            className={`px-4 py-2 text-sm md:text-base rounded-md ${filter === category ? "bg-gray-700 text-white" : "bg-gray-500 text-white hover:bg-gray-400"}`}
+            className={`px-4 py-2 text-sm md:text-base rounded-md ${filter === category ? "bg-red-600 text-white shadow-lg"
+              : "bg-gray-300 text-gray-800 hover:bg-red-500 hover:text-white"}`}
           >
             {category}
           </button>
