@@ -76,78 +76,101 @@ function SignUp() {
         setMessage("Error: Unable to complete sign-up.");
     });
 };
-  return (
-    <div className="h-screen flex items-center justify-center bg-[url('/src/assets/Riadsss.png')] bg-cover bg-center">
-      <div className="flex flex-col justify-center text-center bg-white bg-opacity-80 p-8 rounded-lg shadow-lg max-w-4xl w-full mx-auto">
-        <h1 className="text-4xl font-bold text-slate-700 mb-6">Sign Up</h1>
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+return (
+  <div className="h-screen flex items-center justify-center bg-[url('/src/assets/Riadsss.png')] bg-cover bg-center">
+    <div className="flex flex-col justify-center text-center bg-white bg-opacity-90 p-8 rounded-lg shadow-2xl max-w-4xl w-full mx-auto">
+      <h1 className="text-3xl font-bold text-gray-800 mb-6">Sign Up</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="space-y-4">
-            <label className="block text-slate-700">Username:</label>
-            <input 
-              type="text" 
-              value={username} 
-              onChange={(e) => setUsername(e.target.value)} 
-              className="w-full px-4 py-3 border-2 rounded-md"
+            <label className="block text-gray-600 font-medium">
+              Username:
+            </label>
+            <input
+              type="text"
+              required
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full px-4 py-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter your username"
-              required
             />
-            <label className="block text-slate-700">First Name:</label>
-            <input 
-              type="text" 
-              value={firstName} 
-              onChange={(e) => setFirstName(e.target.value)} 
-              className="w-full px-4 py-3 border-2 rounded-md"
+            <label className="block text-gray-600 font-medium">
+              First Name:
+            </label>
+            <input
+              type="text"
+              required
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              className="w-full px-4 py-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter your first name"
-              required
             />
-            <label className="block text-slate-700">Password:</label>
-            <input 
-              type="password" 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
-              className="w-full px-4 py-3 border-2 rounded-md"
-              placeholder="Enter your password"
+            <label className="block text-gray-600 font-medium">
+              Password:
+            </label>
+            <input
+              type="password"
               required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter your password"
             />
           </div>
           <div className="space-y-4">
-            <label className="block text-slate-700">Email:</label>
-            <input 
-              type="email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              className="w-full px-4 py-3 border-2 rounded-md"
+            <label className="block text-gray-600 font-medium">Email:</label>
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-4 py-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter your email"
-              required
             />
-            <label className="block text-slate-700">Last Name:</label>
-            <input 
-              type="text" 
-              value={lastName} 
-              onChange={(e) => setLastName(e.target.value)} 
-              className="w-full px-4 py-3 border-2 rounded-md"
+            <label className="block text-gray-600 font-medium">
+              Last Name:
+            </label>
+            <input
+              type="text"
+              required
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              className="w-full px-4 py-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Enter your last name"
-              required
             />
-            <label className="block text-slate-700">Confirm Password:</label>
-            <input 
-              type="password" 
-              value={confirmPassword} 
-              onChange={(e) => setConfirmPassword(e.target.value)} 
-              className="w-full px-4 py-3 border-2 rounded-md"
+            <label className="block text-gray-600 font-medium">
+              Confirm Password:
+            </label>
+            <input
+              type="password"
+              required
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              className="w-full px-4 py-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="Confirm your password"
-              required
             />
-            <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md mt-6">Sign Up</button>
           </div>
-        </form>
-        {message && <div className="text-red-500 text-sm mt-2">{message}</div>}
-        <div className="mt-4 text-center">
-          <Link to="/login" className="text-blue-500 hover:text-blue-700">Already have an account? Log in</Link>
         </div>
+        <button
+          type="submit"
+          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md mt-6 shadow-md transition duration-200"
+        >
+          Sign Up
+        </button>
+      </form>
+      {message && <div className="text-red-500 text-sm mt-4">{message}</div>}
+
+      <div className="mt-4 text-center">
+        <Link
+          to="/login"
+          className="text-blue-500 hover:text-blue-700 transition"
+        >
+          Already have an account? Log in
+        </Link>
       </div>
     </div>
-  );
+  </div>
+);
 }
 
 export default SignUp;
