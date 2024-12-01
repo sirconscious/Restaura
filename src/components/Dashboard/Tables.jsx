@@ -10,8 +10,8 @@ const TableUpdate = () => {
     // Fetch the list of unavailable tables from the API
     const fetchTables = async () => {
       try {
-        const response = await axios.get('http://localhost/dashboard_php/fetchTables.php');
-        setTables(response.data.tables); // Assuming the response has 'tables'
+        const response = await axios.get('http://localhost/riadapis/index.php?action=tables');
+        setTables(response.data); // Assuming the response has 'tables'
       } catch (error) {
         console.error('Error fetching tables:', error);
       }
@@ -22,7 +22,7 @@ const TableUpdate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost/dashboard_php/UpdateTables.php', {
+      const response = await axios.post('http://localhost/riadapis/index.php?action=updateTables', {
         table_id: selectedTableId,
         reserved: reserved ? 1 : 0,
       });

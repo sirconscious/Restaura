@@ -10,8 +10,8 @@ const MealAvailabilityUpdate = () => {
     // Fetch all meals from the API
     const fetchMeals = async () => {
       try {
-        const response = await axios.get('http://localhost/dashboard_php/fetchMeals.php');
-        setMeals(response.data.meals); // Set all meals regardless of availability
+        const response = await axios.get('http://localhost/riadapis/index.php?action=fetchmeals');
+        setMeals(response.data); // Set all meals regardless of availability
       } catch (error) {
         console.error('Error fetching meals:', error);
       }
@@ -22,7 +22,7 @@ const MealAvailabilityUpdate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost/dashboard_php/UpdateMeals.php', {
+      const response = await axios.post('http://localhost/riadapis/index.php?action=updateStats', {
         meal_id: selectedMealId,
         is_available: isAvailable ? 1 : 0
       });
