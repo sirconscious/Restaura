@@ -33,17 +33,30 @@ export default function Meals() {
   };
 
   const handleAddToCart = (meal) => {
+    console.log("The meal", meal);
     const preparationTime = meal.preparation_time || "0 m";
     const currentTime = new Date();
     const preparationTimeInMinutes = Prep_timeToMinutes(preparationTime);
 
     const reservationDateTime = new Date(`${reserveInfo.date}T${reserveInfo.time}`);
+    const simalareMeal = orderdMeals.find((item) => item.meal_id === meal.meal_id);
+    console.log("the simalare meal",simalareMeal);
     if (reservationDateTime - currentTime < preparationTimeInMinutes * 60 * 1000) {
       setInvalidMeal({ name: meal.name, preparationTime: preparationTime });
       setValidPreparationTime(false);
       return;
     } else {
-      setOrderedMeals([...orderdMeals, meal]);
+      if (simalareMeal) {
+        simalareMeal.qt = parseInt(meal.qt) + parseInt(simalareMeal.qt);
+        console.log("after", simalareMeal);
+        const newListe = orderdMeals.filter((item) => item.meal_id !== meal.meal_id);
+        console.log("orders", orderdMeals);
+        setOrderedMeals([...newListe, simalareMeal]);
+        console.log("orders", orderdMeals);
+      }else{
+        setOrderedMeals([...orderdMeals, meal]);
+      }
+      
     }
   };
 
