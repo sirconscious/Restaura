@@ -17,6 +17,7 @@ export default function Payment() {
     const [cardExpiration, setCardExpiration] = useState('');
     const [cvv, setCvv] = useState('');
     const [errormsg,seterrormsg]= useState('')
+    const [success,setsuccess] = useState('')
     const [data, setData] = useState([]);
     const [showLoading, setShowLoading] = useState(false);
     const [showThankYouMessage, setShowThankYouMessage] = useState(false);
@@ -101,17 +102,17 @@ export default function Payment() {
                             console.log(response.data);
                             if (response.data.status === "success") {
                                 console.log("Payment successful!");
-                                alert("Payment successful!");
+                                setsuccess("Payment successful!");
                                 seterrormsg("")
                                 const clientInfo = response.data.data;
                                 console.log(clientInfo);
 
-                                sendOrderConfirmation(
-                                    clientInfo.first_name,
-                                    clientInfo.email,
-                                    orderdMeals.map((meal) => `${meal.qt} x ${meal.name}`).join(", "),
-                                    orderdMeals.reduce((acc, meal) => acc + meal.price * meal.qt, 0)
-                                );
+                                // sendOrderConfirmation(
+                                //     clientInfo.first_name,
+                                //     clientInfo.email,
+                                //     orderdMeals.map((meal) => `${meal.qt} x ${meal.name}`).join(", "),
+                                //     orderdMeals.reduce((acc, meal) => acc + meal.price * meal.qt, 0)
+                                // );
                             }
                         })
                         .catch((error) => {
@@ -125,7 +126,7 @@ export default function Payment() {
             } else {
                 console.log('Invalid payment information.');
                 seterrormsg('Invalid payment information.');
-                
+                setsuccess("")
             }
         }
     };
@@ -230,7 +231,8 @@ export default function Payment() {
                             </div>
                         </div>
                     </div>
-                    {errormsg && <div className="text-red-500 text-sm mt-4">{errormsg}</div>}
+                    {errormsg && <div className="text-red-500 text-sm mt-4 text-center">{errormsg}</div>}
+                    {success && <div className="text-green-700 text-sm mt-4 text-center">{success}</div>}
                     <button
                         className="flex py-2 text-black border hover:bg-neutral-900 hover:text-white focus:outline-none text-xl px-5 text-center border-neutral-900 mx-auto mt-5 font-semibold rounded-lg transition-all duration-200"
                         type="submit"
