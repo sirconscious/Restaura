@@ -69,7 +69,7 @@ import dish067 from "../assets/dish067.jpg";
 
 import italian from "../assets/italian.jpeg";
 import japanese from "../assets/japanese.jpeg";
-import indian from "../assets/indian.jpeg";
+import moroccan from "../assets/moroccan.jpg";
 
 import { FaXTwitter, FaFacebook, FaInstagram } from "react-icons/fa6";
 import { GrLocationPin } from "react-icons/gr";
@@ -277,26 +277,25 @@ export const MISSION =
 export const CUSINES = [
   {
     number: "01.",
+    image: moroccan, // Ensure you have an imported Moroccan image
+    title: "CUSINES.moroccan", // Translation key for Moroccan
+    description: "CUSINES.moroccan_description", // Translation key for Moroccan description
+  },
+  {
+    number: "02.",
+    image: japanese,
+    title: "CUSINES.japanese", // Translation key for Japanese
+    description: "CUSINES.japanese_description", // Translation key for Japanese description
+  },
+  {
+    number: "03.",
     image: italian,
     title: "CUSINES.italian",  // Using translation keys
     description:
       "CUSINES.italian_description",  // Using translation keys
   },
-  {
-    number: "02.",
-    image: japanese,
-    title: "CUSINES.japanese",  // Using translation keys
-    description:
-      "CUSINES.japanese_description",  // Using translation keys
-  },
-  {
-    number: "03.",
-    image: indian,
-    title: "CUSINES.indian",  // Using translation keys
-    description:
-      "CUSINES.indian_description",  // Using translation keys
-  },
 ];
+
 
 // Review section text
 export const REVIEW = {
@@ -316,11 +315,11 @@ export const CONTACT = [
 // Social Media Links
 export const SOCIAL_MEDIA_LINKS = [
   {
-    href: "https://x.com/restaurant/",
+    href: "https://www.facebook.com/share/Mm4C4QK7Ytj9fF7f/?mibextid=LQQJ4d",
     icon: <FaFacebook fontSize={30} className="hover:opacity-80" />,
   },
   {
-    href: "https://x.com/restaurant/",
+    href: "https://www.instagram.com/riad_saveurs?igsh=bG5zZWQ5NzJzYXBi&utm_source=qr",
     icon: <FaInstagram fontSize={30} className="hover:opacity-80" />,
   },
   {

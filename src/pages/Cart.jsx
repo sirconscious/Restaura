@@ -3,32 +3,35 @@ import { TbX } from "react-icons/tb";
 import { useNavigate } from 'react-router-dom';
 import SuggestOfMeals from './SuggestOfMeals';
 
-export default function Cart({ orderdMeals, handleRemoveFromCart, handleClearCart, drinks ,handleAddToCart}) {
+export default function Cart({ orderdMeals, handleRemoveFromCart, handleClearCart, drinks, handleAddToCart }) {
     const navigate = useNavigate();
     const [showSuggestions, setShowSuggestions] = useState(false);
-    const [removeSuggestion, setRemoveSuggestion] = useState(false);
-    const suggestDrink = orderdMeals.filter((item) => item.category === "international");
-    function handleRemoveSuggestion() {
-        // setRemoveSuggestion(true);
-        setShowSuggestions(false);
-    }
-    function handlereserve() {
-        if (suggestDrink.length === 0) {
-            setShowSuggestions(true);
-        }else{
-            if (showSuggestions === false) {
-                navigate(`/Payment?total=${orderdMeals.reduce((acc, meal) => acc + meal.price * meal.qt, 0)}&orderdMeals=${JSON.stringify(orderdMeals)}`);
+    
+    const [skipSuggestions, setSkipSuggestions] = useState(false); 
 
-        }
-        }
+    const suggestDrink = orderdMeals.filter((item) => item.category === "international");
+
+    function handleRemoveSuggestion() {
+        setShowSuggestions(false);
+        setSkipSuggestions(true); 
         
     }
+
+    function handlereserve() {
+       
+        if (!skipSuggestions && suggestDrink.length === 0) {
+            setShowSuggestions(true);
+        } else {
+            navigate(`/Payment?total=${orderdMeals.reduce((acc, meal) => acc + meal.price * meal.qt, 0)}&orderdMeals=${JSON.stringify(orderdMeals)}`);
+        }
+    }
+
     return (
         <div className="z-30 bg-white bg-opacity-95 p-6 sm:p-8 rounded-lg shadow-lg fixed right-0 top-20 mt-10 w-full sm:w-1/3 lg:w-1/4 ">
             {
                 showSuggestions && (
-                   <SuggestOfMeals drinks={drinks} handleRemoveSuggestion={handleRemoveSuggestion} handleAddToCart={handleAddToCart}/>
-                ) 
+                    <SuggestOfMeals drinks={drinks} handleRemoveSuggestion={handleRemoveSuggestion} handleAddToCart={handleAddToCart} />
+                )
             }
             <div className="overflow-y-auto h-96">
                 {orderdMeals.map((meal, index) => (

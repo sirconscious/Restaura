@@ -30,7 +30,7 @@ const {t}=useTranslation();
         }
     }
   return (
-    <section className='container mx-auto mb-8 mt-12'>
+    <section id='review' className='container mx-auto mb-8 mt-12'>
         <motion.div
             
             initial ={{

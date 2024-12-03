@@ -1,10 +1,10 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';  // Import useTranslation hook
+import { useTranslation } from 'react-i18next';  
 import about from '../assets/about.jpeg';
 import { motion } from 'framer-motion';
 
 export default function About() {
-  const { t } = useTranslation();  // Initialize the translation hook
+  const { t } = useTranslation(); 
 
   return (
     <section className="container mx-auto mb-8" id="about">

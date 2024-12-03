@@ -10,13 +10,13 @@ export default function Payment() {
     const location = useLocation();
     const params = new URLSearchParams(location.search);
     const total_price = params.get('total');
-    const finel_price = total_price - 50;
+    const finel_price = total_price - total_price*0.1;
     const orderdMeals = JSON.parse(params.get('orderdMeals'));
     const [fullName, setFullName] = useState('');
     const [cardNumber, setCardNumber] = useState('');
     const [cardExpiration, setCardExpiration] = useState('');
     const [cvv, setCvv] = useState('');
-
+    const [errormsg,seterrormsg]= useState('')
     const [data, setData] = useState([]);
     const [showLoading, setShowLoading] = useState(false);
     const [showThankYouMessage, setShowThankYouMessage] = useState(false);
@@ -102,7 +102,7 @@ export default function Payment() {
                             if (response.data.status === "success") {
                                 console.log("Payment successful!");
                                 alert("Payment successful!");
-
+                                seterrormsg("")
                                 const clientInfo = response.data.data;
                                 console.log(clientInfo);
 
@@ -116,6 +116,7 @@ export default function Payment() {
                         })
                         .catch((error) => {
                             console.error("Error in request:", error);
+                           
                         });
 
                     setShowLoading(false);
@@ -123,7 +124,8 @@ export default function Payment() {
                 }, 3000);
             } else {
                 console.log('Invalid payment information.');
-                alert('Invalid payment information.');
+                seterrormsg('Invalid payment information.');
+                
             }
         }
     };
@@ -228,6 +230,7 @@ export default function Payment() {
                             </div>
                         </div>
                     </div>
+                    {errormsg && <div className="text-red-500 text-sm mt-4">{errormsg}</div>}
                     <button
                         className="flex py-2 text-black border hover:bg-neutral-900 hover:text-white focus:outline-none text-xl px-5 text-center border-neutral-900 mx-auto mt-5 font-semibold rounded-lg transition-all duration-200"
                         type="submit"
@@ -245,7 +248,7 @@ export default function Payment() {
                         </dl>
                         <dl className="flex justify-between">
                             <dt className="text-sm font-semibold text-gray-600">Savings</dt>
-                            <dd className="text-sm font-semibold text-green-600">-50 DH</dd>
+                            <dd className="text-sm font-semibold text-green-600">- 10 %</dd>
                         </dl>
                         <hr />
                         <dl className="flex justify-between">
@@ -253,6 +256,18 @@ export default function Payment() {
                             <dd className="text-xl font-semibold text-gray-900">{finel_price} DH</dd>
                         </dl>
                     </div>
+                    <div className="flex items-center justify-center gap-10 mt-6">
+                            <img
+                                className="h-8"
+                                src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/brand-logos/visa.svg"
+                                alt="Visa"
+                            />
+                            <img
+                                className="h-8"
+                                src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/brand-logos/mastercard.svg"
+                                alt="Mastercard"
+                            />
+                        </div>
                 </div>
             </div>
         </section>

@@ -41,7 +41,7 @@ export default function Expertise() {
                     <div className="text-lg sm:text-3xl md:text-4xl">
                         {t(`CUSINES.${index}.number`)}
                     </div>
-                    <div className="w-1/3 ">
+                    <div className="w-1/4">
                         <img src={cuisine.image} className='h-auto rounded-lg sm:rounded-3xl' alt={cuisine.title} />
                     </div>
                     <div className="pl-8">

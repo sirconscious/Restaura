@@ -9,37 +9,9 @@ function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [message, setMessage] = useState(''); // To display the server response message
+  const [message, setMessage] = useState(''); 
   const navigate = useNavigate();
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   if (password !== confirmPassword) {
-  //     setMessage("Passwords do not match");
-  //     return;
-  //   }
-
-  //   const url = "http://localhost/riadapis/index.php?action=signUp";
-  //   let fdata = new FormData();
-  //   fdata.append('username', username);
-  //   fdata.append('email', email);
-  //   fdata.append('password', password);
-  //   fdata.append('firstName', firstName);
-  //   fdata.append('lastName', lastName);
-
-  //   axios.post(url, fdata)
-  //   .then((response) => {
-  //     console.log(response)
-  //     if (response.data && response.data.status === "success") {
-  //       setMessage("Success: " + response.data.message);
-  //       // Redirect if needed
-  //     } else {
-  //       setMessage("Error: " + response.data.message);
-  //     }
-  //   })
-  //   // .catch((error) => setMessage("Error: Unable to complete sign-up."));
   
-  // };
   const handleSubmit = (e) => {
     e.preventDefault();
 

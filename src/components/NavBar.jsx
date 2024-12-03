@@ -8,19 +8,19 @@ import LanguageSwitcher from './languageSwitcher';
 
 export default function NavBar() {
   const [showAll, setShowALL] = useState(true);
-  const[ location , setLocation] = useState(useLocation());  // Get current location
+  const[ location , setLocation] = useState(useLocation()); 
 
   useEffect(() => {
-    // Check if the current path is '/signup' or '/login'
+    
     if (location.pathname === "/signup" || location.pathname === "/login") {
       setShowALL(false);
     } else {
       setShowALL(true);
     }
-  }, [location]);  // Add location to the dependency array to run the effect on path change
+  }, [location]); 
 
   const [isMobilemenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t } = useTranslation();  // Initialize translation hook
+  const { t } = useTranslation();  
 
   const toggleMenu = () => {
     setIsMobileMenuOpen(prevState => !prevState);

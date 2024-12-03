@@ -92,25 +92,26 @@
     "MISSION": "Dans notre restaurant, notre mission est de créer des expériences gastronomiques délicieuses et mémorables.",
   
     "CUSINES": [
-      {
-        "number": "01.",
-        "image": "../assets/italian.jpeg",
-        "title": "Italien",
-        "description": "Découvrez les saveurs de l'Italie avec notre cuisine italienne exquise, comprenant des recettes traditionnelles et des plats contemporains."
-      },
-      {
-        "number": "02.",
-        "image": "../assets/japanese.jpeg",
-        "title": "Japonais",
-        "description": "Savourez l'excellence culinaire japonaise, offrant une fusion de saveurs classiques et modernes."
-      },
-      {
-        "number": "03.",
-        "image": "../assets/indian.jpeg",
-        "title": "Indien",
-        "description": "Savourez les saveurs riches et diverses de l'Inde, avec un menu qui célèbre l'héritage culinaire du pays."
-      }
-    ],
+  {
+    "number": "01.",
+    "image": "../assets/moroccan.jpg",
+    "title": "Marocain",
+    "description": "Partez à la découverte du Maroc avec nos plats marocains authentiques, mêlant épices aromatiques et riches traditions."
+  },
+  {
+    "number": "02.",
+    "image": "../assets/japanese.jpeg",
+    "title": "Japonais",
+    "description": "Découvrez l'art culinaire japonais, offrant une fusion de saveurs classiques et modernes."
+  },
+  {
+    "number": "03.",
+    "image": "../assets/italian.jpeg",
+    "title": "Italien",
+    "description": "Découvrez les saveurs de l'Italie avec notre cuisine italienne exquise, mettant en vedette des recettes traditionnelles et des plats contemporains."
+  }
+]
+,
   
     "REVIEW": [
       {
