@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const TableUpdate = () => {
   const [tables, setTables] = useState([]);
-  const [selectedTableId, setSelectedTableId] = useState('');
+  const [selectedTableId, setSelectedTableId] = useState("");
   const [reserved, setReserved] = useState(true);
 
   useEffect(() => {
     // Fetch the list of unavailable tables from the API
     const fetchTables = async () => {
       try {
-        const response = await axios.get('http://localhost/riadapis/index.php?action=tables');
+        const response = await axios.get(
+          "http://localhost/riadapis/index.php?action=tables"
+        );
         setTables(response.data); // Assuming the response has 'tables'
       } catch (error) {
-        console.error('Error fetching tables:', error);
+        console.error("Error fetching tables:", error);
       }
     };
     fetchTables();
@@ -22,13 +24,16 @@ const TableUpdate = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost/riadapis/index.php?action=updateTables', {
-        table_id: selectedTableId,
-        reserved: reserved ? 1 : 0,
-      });
+      const response = await axios.post(
+        "http://localhost/riadapis/index.php?action=updateTables",
+        {
+          table_id: selectedTableId,
+          reserved: reserved ? 1 : 0,
+        }
+      );
 
       // Log the response for debugging
-      console.log('Response Data:', response.data);
+      console.log("Response Data:", response.data);
 
       // Handle the response appropriately
       if (response.data.message) {
@@ -36,18 +41,20 @@ const TableUpdate = () => {
       } else if (response.data.error) {
         alert(response.data.error); // Error message
       } else {
-        alert('Unexpected response from the server');
+        alert("Unexpected response from the server");
       }
     } catch (error) {
-      console.error('Error updating table status:', error);
-      alert('Error updating table status.');
+      console.error("Error updating table status:", error);
+      alert("Error updating table status.");
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700">Select Table</label>
+        <label className="block text-sm font-medium text-gray-700">
+          Select Table
+        </label>
         <select
           value={selectedTableId}
           onChange={(e) => setSelectedTableId(e.target.value)}
