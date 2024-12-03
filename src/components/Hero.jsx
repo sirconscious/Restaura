@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
-import {  Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 import vid1 from "../assets/vid1.mp4";
 import logo2 from "../assets/finalLogo-removebg-preview.png";
@@ -85,20 +84,21 @@ export default function Hero() {
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent from-70% to-black"></div>
         {/* Log in Sign up */}
-        
+
         {/* Logo and location */}
         <div className="relative z-20 flex h-screen flex-col justify-end items-center pb-5">
-        <div className="absolute bottom-20 -left-40  right-full z-10 hidden lg:block">
-          <Link to="/SignUp">
-          <button
-            type="button"
-            className="text-white  border  hover:bg-white hover:text-neutral-900 
+          <div className="absolute bottom-20 -left-40  right-full z-10 hidden lg:block">
+            <Link to="/SignUp">
+              <button
+                type="button"
+                className="text-white  border  hover:bg-white hover:text-neutral-900 
          focus:outline-none  font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2 border-white hover:border-neutral-900 hover:dark:bg-neutral-300 flex justify-center items-center "
-          >
-            {" "}
-            <span className="mr-3">Reservation</span> <FaArrowRight />{" "}
-          </button></Link>
-        </div>
+              >
+                {" "}
+                <span className="mr-3">Reservation</span> <FaArrowRight />{" "}
+              </button>
+            </Link>
+          </div>
           <motion.img
             initial={{ opacity: 0, y: 400, rotateY: "180deg" }}
             animate={{ opacity: 1, y: 0, rotateY: "0deg" }}
@@ -122,14 +122,15 @@ export default function Hero() {
             </p>
           </div>
           <Link to="/SignUp">
-          <button
-            type="button"
-            className="text-white  border  hover:bg-white hover:text-neutral-900 
+            <button
+              type="button"
+              className="text-white  border  hover:bg-white hover:text-neutral-900 
          focus:outline-none  font-medium rounded-lg text-xl px-5 py-2.5 text-center me-2 mb-2 border-white hover:border-neutral-900 hover:dark:bg-neutral-300 flex lg:hidden justify-center items-center "
-          >
-            {" "}
-            <span className="mr-3">Reservation</span> <FaArrowRight />{" "}
-          </button></Link>
+            >
+              {" "}
+              <span className="mr-3">Reservation</span> <FaArrowRight />{" "}
+            </button>
+          </Link>
         </div>
 
         {/* Weather data on the bottom right */}

@@ -9,16 +9,21 @@ export default function PreparationTime({ name, preparationTime }) {
 
       {/* Message */}
       <p className="text-sm sm:text-base mb-4 leading-relaxed">
-        Unfortunately, you don't have enough time to prepare the 
-        <span className="font-semibold text-gray-900"> {name}</span>.
-        Please select a different meal or change the reservation time.
+        Unfortunately, you don't have enough time to prepare the
+        <span className="font-semibold text-gray-900">
+          {" "}
+          {name}
+        </span>. Please select a different meal or change the reservation time.
       </p>
 
       {/* Suggestion */}
       <p className="text-sm sm:text-base mb-6">
-        Select a time that allows at least 
-        <span className="font-semibold text-gray-900"> {preparationTime}</span> 
-        {" "} for preparation.
+        Select a time that allows at least
+        <span className="font-semibold text-gray-900">
+          {" "}
+          {preparationTime}
+        </span>{" "}
+        for preparation.
       </p>
 
       {/* Actions */}

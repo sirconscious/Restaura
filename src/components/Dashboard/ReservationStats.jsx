@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { FaDollarSign, FaCalendarCheck, FaChair } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { FaDollarSign, FaCalendarCheck, FaChair } from "react-icons/fa";
 
 const ReservationStats = () => {
   const [stats, setStats] = useState({
@@ -13,11 +13,13 @@ const ReservationStats = () => {
   useEffect(() => {
     const fetchReservationStats = async () => {
       try {
-        const response = await axios.get('http://localhost/dashboard_php/reservation-stats.php');
+        const response = await axios.get(
+          "http://localhost/dashboard_php/reservation-stats.php",
+        );
         setStats(response.data);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching reservation stats:', error);
+        console.error("Error fetching reservation stats:", error);
         setLoading(false);
       }
     };
@@ -30,7 +32,7 @@ const ReservationStats = () => {
   }
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md" id='stats'>
+    <div className="bg-white p-4 rounded-lg shadow-md" id="stats">
       <h2 className="text-xl font-semibold">Reservation Stats</h2>
       <div className="mt-4 space-y-4">
         {/* Total Price */}
