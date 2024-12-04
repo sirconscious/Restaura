@@ -5,7 +5,7 @@ import testCsv from '../constants/PaymentAcc.csv';
 import Papa from 'papaparse';
 import emailjs from "emailjs-com";
 import loadingVd from "../assets/Loading2.mp4";
-
+import { useNavigate } from 'react-router-dom';
 export default function Payment() {
     const location = useLocation();
     const params = new URLSearchParams(location.search);
@@ -21,13 +21,14 @@ export default function Payment() {
     const [data, setData] = useState([]);
     const [showLoading, setShowLoading] = useState(false);
     const [showThankYouMessage, setShowThankYouMessage] = useState(false);
-    
+    const navigate = useNavigate();
     useEffect(() => {
         Papa.parse(testCsv, {
             download: true,
             header: true,
             complete: (results) => {
                 setData(results.data); 
+                
             },
             error: (error) => {
                 console.error("Error reading CSV:", error);
@@ -113,6 +114,7 @@ export default function Payment() {
                                 //     orderdMeals.map((meal) => `${meal.qt} x ${meal.name}`).join(", "),
                                 //     finel_price
                                 // );
+                                navigate("/");
                             }
                         })
                         .catch((error) => {
