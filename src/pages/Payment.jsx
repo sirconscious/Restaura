@@ -21,7 +21,7 @@ export default function Payment() {
     const [data, setData] = useState([]);
     const [showLoading, setShowLoading] = useState(false);
     const [showThankYouMessage, setShowThankYouMessage] = useState(false);
-
+    
     useEffect(() => {
         Papa.parse(testCsv, {
             download: true,
@@ -90,7 +90,7 @@ export default function Payment() {
                     fdata.append('time', reserve_info.time);
                     fdata.append('username', reserve_info.username);
                     fdata.append('table_id', reserve_info.table_id);
-                    fdata.append("total_price", orderdMeals.reduce((acc, meal) => acc + meal.price * meal.qt, 0));
+                    fdata.append("total_price",finel_price);
                     fdata.append('meals', JSON.stringify(orderdMeals));
 
                     axios.post(url, fdata, {
@@ -111,7 +111,7 @@ export default function Payment() {
                                 //     clientInfo.first_name,
                                 //     clientInfo.email,
                                 //     orderdMeals.map((meal) => `${meal.qt} x ${meal.name}`).join(", "),
-                                //     orderdMeals.reduce((acc, meal) => acc + meal.price * meal.qt, 0)
+                                //     finel_price
                                 // );
                             }
                         })
@@ -149,7 +149,7 @@ export default function Payment() {
             )}
         </div>
     
-        <section className="bg-white shadow-2xl rounded-xl p-8 max-w-4xl w-full">
+        <section className="bg-white shadow-2xl rounded-xl p-8 mt-28 max-w-4xl w-full">
             <h2 className="text-3xl font-semibold text-gray-900 mb-8 text-center">
                 Complete Your Payment
             </h2>

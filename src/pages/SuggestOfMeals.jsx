@@ -5,8 +5,8 @@ import { mealImages } from "../constants";
 
 export default function SuggestOfMeals({ drinks ,handleRemoveSuggestion,handleAddToCart}) {
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 p-6 bg-black bg-opacity-70">
-      <div className="relative bg-gray-900 text-white rounded-lg shadow-2xl w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 flex items-center justify-center z-50  bg-black bg-opacity-70">
+      <div className="relative bg-gray-900 text-white rounded-lg shadow-2xl w-3/4 max-h-[90vh] overflow-y-auto">
    
         <button
           className="absolute top-3 right-3 text-gray-400 hover:text-white text-4xl font-bold"
