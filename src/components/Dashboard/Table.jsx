@@ -8,7 +8,7 @@ const ReservationsTable = () => {
   useEffect(() => {
     const fetchReservations = async () => {
       try {
-        const response = await axios.get('http://localhost/riadapis/index.php?action=reservation');
+        const response = await axios.get('http://riadsaveurs.free.nf/api/riadapi/index.php?action=reservation');
         setReservations(response.data);
         setLoading(false);
       } catch (error) {
@@ -23,7 +23,7 @@ const ReservationsTable = () => {
   const handleAction = async (reservationId, action) => {
     try {
       const response = await axios.post(
-        'http://localhost/riadapis/index.php?action=updateReservation',
+        'http://riadsaveurs.free.nf/api/riadapi/index.php?action=updateReservation',
         {
           reservation_id: reservationId,
           action: action,

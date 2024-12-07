@@ -20,7 +20,7 @@ function SignUp() {
         return;
     }
 
-    const url = "http://localhost/riadapis/index.php?action=signUp";
+    const url = "https://riadsaveurs.atwebpages.com/index.php?action=signUp";
     let fdata = new FormData();
     fdata.append('username', username);
     fdata.append('email', email);

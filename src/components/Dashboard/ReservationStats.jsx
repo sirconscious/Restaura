@@ -13,7 +13,7 @@ const ReservationStats = () => {
   useEffect(() => {
     const fetchReservationStats = async () => {
       try {
-        const response = await axios.get('http://localhost/riadapis/index.php?action=fetchStats');
+        const response = await axios.get('http://riadsaveurs.free.nf/api/riadapi/index.php?action=fetchStats');
         setStats(response.data);
         setLoading(false);
       } catch (error) {

@@ -14,7 +14,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const url = "http://localhost/riadapis/index.php?action=login";
+    const url = "https://riadsaveurs.atwebpages.com/index.php?action=login";
     let fdata = new FormData();
     fdata.append('username', username);
     fdata.append('password', password);

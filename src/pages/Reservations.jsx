@@ -40,7 +40,7 @@ function Reservations() {
             setError("");
         }
 
-        const url = "http://localhost/riadapis/index.php?action=findTables";
+        const url = "https://riadsaveurs.atwebpages.com/index.php?action=findTables";
 
         if (selectedTable !== null) {
             fdata.append('table_id', selectedTable);
