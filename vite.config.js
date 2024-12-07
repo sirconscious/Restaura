@@ -14,5 +14,5 @@ export default defineConfig({
     },
     chunkSizeWarningLimit: 1000, // Increase the chunk size limit from 500 KB to 1000 KB
   },
-  
+  base: '/Restaura/',
 });
